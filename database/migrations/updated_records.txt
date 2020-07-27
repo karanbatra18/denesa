@@ -1,0 +1,21 @@
+Please make sure you follow this guide: https://www.namecheap.com/support/knowledgebase/article.aspx/1016/89/how-to-access-a-hosting-account-via-ssh
+The details to be used are:
+Host Name: server274.web-hosting.com
+Port: 21098
+
+[11:19 PM, 7/5/2020] Udit: xjutonzv
+[11:27 PM, 7/5/2020] Udit: cxI3owAvxfQP
+[11:31 PM, 7/5/2020] Udit: zd9~$QMYF!@O
+
+FTP Username: greathub@top21.org
+FTP server: ftp.top21.org
+FTP & explicit FTPS port:  21
+
+admin_dhealth@gmail.com
+
+[11:42 PM, 7/5/2020] Udit: username top21
+[11:42 PM, 7/5/2020] Udit: pwd: Greathub@321#
+
+Greathub@321#
+
+admin_dhealth@gmail.com
