@@ -1,6 +1,6 @@
 <nav class="navbar header navbar-expand-xl navbar-light ">
     <div class="container ">
-        <a class="navbar-brand" href="index.php"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"/></a>
+        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
                     <a class="nav-link" href="{{ route('doctor.index-front') }}">Doctors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cost.php">costs</a>
+                    <a class="nav-link" href="{{ route('treatment.indexFront') }}">costs</a>
                 </li>
                 <li class="nav-item menu-item-has-children">
                     <a class="nav-link" href="{{ route('knowledge-center') }}">knowledge center</a>

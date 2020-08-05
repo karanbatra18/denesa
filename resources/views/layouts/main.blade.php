@@ -10,7 +10,7 @@
     @yield('content')
 
     @include('_partials.main.footer')
-
+    @yield('script')
 
 <!-- scripts -->
 <!-- END: scripts -->

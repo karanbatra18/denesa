@@ -15,17 +15,18 @@ class CreateTreatmentsTable extends Migration
     {
         Schema::create('treatments', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('hospital_id')
-            //   ->constrained()
-            //   ->onDelete('cascade')->default(0);
-            // $table->foreignId('doctor_id')
-            //   ->constrained()
-            //   ->onDelete('cascade')->default(0);
             $table->string('title');
+            $table->string('slug');
+
+            $table->string('transplant_price');
+            $table->string('travellers_count');
+            $table->string('hospital_days_count');
+            $table->string('days_outside_count');
+            $table->string('total_days_count');
+
             $table->text('introduction');
             $table->text('cost');
-            $table->text('specialization');
-            $table->text('faqs');
+            $table->text('featured_image');
             $table->softDeletes();
             $table->timestamps();
         });

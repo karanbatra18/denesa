@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\AboutIntroduction;
+use App\Category;
+use App\DenesaObjective;
+use App\DenesaService;
+use App\Vision;
 use Illuminate\Http\Request;
 
 use App\Doctor;
@@ -28,6 +33,25 @@ class TreatmentController extends Controller
 
         $treatments = Treatment::get();
         return view('admin.treatment.index', compact('treatments'));
+    }
+
+    public function indexFront()
+    {
+        //DB::connection()->enableQueryLog();
+        /*$doctors = Cache::remember('doctors', Config::get('constants.seconds.one_second'), function () {
+            return Doctor::get();
+        });*/
+
+        //$queries = DB::getQueryLog();
+
+        //\Log::info($queries);
+        $aboutIntroduction = AboutIntroduction::first();
+        $visions = Vision::get();
+        $denesaObjective = DenesaObjective::first();
+        $treatments = Treatment::get();
+        $categories = Category::with('treatments')->where(['type' => 'treatment'])->get();
+        $denesaServices = DenesaService::get();
+        return view('treatment.index', compact('treatments', 'categories', 'aboutIntroduction', 'visions', 'denesaObjective', 'denesaServices'));
     }
 
     /**
@@ -57,7 +81,9 @@ class TreatmentController extends Controller
     {
     	$hospitals = Hospital::get();
     	$doctors = Doctor::get();
-        return view('admin.treatment.create', compact('hospitals', 'doctors'));
+        $categories = Category::where(['type' => 'treatment'])->get();
+
+        return view('admin.treatment.create', compact('hospitals', 'doctors', 'categories'));
     }
 
     /**
@@ -70,38 +96,62 @@ class TreatmentController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|min:3|max:150',
-            'specialization' => 'required',
+            'introduction' => 'required',
+            //'specialization' => 'required',
+          //  'specialization' => 'required',
             //'slug' => 'required|unique:doctors',
         ]);
 
-        $data = $request->all();
-        Treatment::create($data);
+        $data = $request->except('hospital_id', 'doctor_id', 'specifications', 'faqs');
+        $treatment = Treatment::create($data);
+        if(isset($request->specifications)) {
+            foreach($request->specifications as $specs) {
+                $treatment->specifications()->create($specs);
+            }
+        }
+
+        if(isset($request->faqs)) {
+            foreach($request->faqs as $faq) {
+                $treatment->faqs()->create($faq);
+            }
+        }
+
+        if(isset($request->hospital_id)) {
+            $treatment->hospitals()->attach($request->hospital_id);
+        }
+
+        if(isset($request->doctor_id)) {
+                $treatment->doctors()->attach($request->doctor_id);
+        }
 
         return redirect()->route('treatment.index');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Treatment $treatment)
+    public function show($slug)
     {
-        return view('admin.treatment.show', compact('treatment'));
+        $treatment = Treatment::whereSlug($slug)->first();
+        return view('treatment.show', compact('treatment'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Treatment $treatment
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Treatment $treatment)
     {
         $hospitals = Hospital::get();
         $doctors = Doctor::get();
-        return view('admin.treatment.create', compact('treatment', 'hospitals', 'doctors'));
+        $categories = Category::where(['type' => 'treatment'])->get();
+        $faqs = $treatment->faqs()->get();
+        $specifications = $treatment->specifications()->get();
+        $treatmentDoctors = $treatment->doctors()->get()->pluck('id')->toArray();
+        $treatmentHospitals = $treatment->hospitals()->get()->pluck('id')->toArray();
+
+        return view('admin.treatment.create', compact('treatment', 'hospitals', 'doctors', 'faqs', 'specifications', 'categories','treatmentDoctors','treatmentHospitals'));
     }
 
     /**
@@ -115,12 +165,35 @@ class TreatmentController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|min:3|max:150',
-            //'slug' => 'required|unique:doctors',
+          //  'slug' => 'required|unique:treatments',
         ]);
 
-        $data = $request->except(['_token', '_method']);
+        $data = $request->except('hospital_id', 'doctor_id', 'specifications', 'faqs');
 
-        Treatment::whereId($id)->update($data);
+        $treatment = Treatment::whereId($id)->first();
+        $treatment->update($data);
+
+        $treatment->specifications()->delete();
+        if(isset($request->specifications)) {
+            foreach($request->specifications as $specs) {
+                $treatment->specifications()->create($specs);
+            }
+        }
+
+        $treatment->faqs()->delete();
+        if(isset($request->faqs)) {
+            foreach($request->faqs as $faq) {
+                $treatment->faqs()->create($faq);
+            }
+        }
+
+        if(isset($request->hospital_id)) {
+            $treatment->hospitals()->sync($request->hospital_id);
+        }
+
+        if(isset($request->doctor_id)) {
+            $treatment->doctors()->sync($request->doctor_id);
+        }
 
         return redirect()->route('treatment.index');
     }
@@ -136,4 +209,26 @@ class TreatmentController extends Controller
         $treatment->delete();
         return redirect()->route('treatment.index');
     }
+
+    public function getTreatments(Request $request)
+    {
+        $search = $request->search;
+
+        if($search == ''){
+            $treatments = Treatment::orderby('title','asc')->limit(5)->get();
+        }else{
+            $treatments = Treatment::orderby('title','asc')->where('title', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+
+        $response = array();
+        foreach($treatments as $treatment){
+          //  dd($treatment);
+            $slug = route('treatment.showFront', ['slug' => $treatment->slug]);
+            $response[] = array("value"=> $slug, "label"=>$treatment->title);
+        }
+
+        return response()->json($response);
+    }
+
+
 }

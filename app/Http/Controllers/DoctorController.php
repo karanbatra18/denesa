@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Treatment;
 use Illuminate\Http\Request;
 use App\Doctor;
 use App\Hospital;
@@ -20,10 +21,29 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $doctors = Doctor::paginate(2);
-        return view('doctor.index', compact('doctors'));
+        $treatmentQuery =  $request->treatment ?? null;
+        $specialityQuery =  $request->speciality ?? null;
+        $cityQuery =  $request->city ?? null;
+
+        $cityCondition = $cityQuery ? ['city' => $cityQuery] : [];
+        $cities = City::all();
+        $treatments = Treatment::all();
+
+        if($treatmentQuery) {
+            $treatment = Treatment::where(['slug' => $treatmentQuery])->first();
+            $doctorIds = $treatment->doctors()->get()->pluck('id')->toArray();
+        } else {
+            $doctorIds = Doctor::get()->pluck('id')->toArray();
+        }
+
+        if($specialityQuery) {
+            $doctors = Doctor::where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $doctorIds)->paginate(2);
+        } else {
+            $doctors = Doctor::where($cityCondition)->whereIn('id', $doctorIds)->paginate(2);
+        }
+        return view('doctor.index', compact('doctors','cities', 'treatments', 'specialityQuery', 'cityQuery', 'treatmentQuery'));
     }
 
 

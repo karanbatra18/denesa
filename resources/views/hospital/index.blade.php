@@ -1,5 +1,8 @@
 @extends('layouts.main')
 @section('content')
+    @php
+        $speciality = [$specialityQuery];
+    @endphp
     <!-- Inner page title Start Here -->
 
     <section class="inner-page-title" >
@@ -19,34 +22,43 @@
             <form class="row ">
 
                 <div class="col-md-4 my-3">
-                    <select class="form-control">
-                        <option >Search Treatment</option>
-                        <option>Search Treatment</option>
-                        <option>Search Treatment</option>
-                        <option>Search Treatment</option>
-                        <option>Search Treatment</option>
+                    <select name="treatment" class="form-control common_search">
+                        <option value="">Search Treatment</option>
+                        @if($treatments->count())
+                            @foreach($treatments as $treatment)
+                                <option {{ $treatmentQuery == $treatment->slug ? 'selected' : '' }} value="{{ $treatment->slug }}">{{ $treatment->title }}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
 
                 <div class=" col-md-4  my-3">
 
-                    <select class="form-control">
-                        <option >Search Specialities</option>
-                        <option >Search Specialities</option>
-                        <option >Search Specialities</option>
-                        <option >Search Specialities</option>
+                    <select name="speciality" class="form-control common_search">
+                        <option value="">Search Speciality</option>
+                        <option @if(in_array('Multi Speciality', $speciality)) selected @endif>Multi Speciality</option>
+                        <option @if(in_array('Obstetrics and Gynaecology', $speciality)) selected @endif>Obstetrics and Gynaecology</option>
+                        <option @if(in_array('Neurology and Neurosurgery', $speciality)) selected @endif>Neurology and Neurosurgery</option>
+                        <option @if(in_array('Haematology', $speciality)) selected @endif>Haematology</option>
+                        <option @if(in_array('Cardiology', $speciality)) selected @endif>Cardiology</option>
+                        <option @if(in_array('Surgery and Urology', $speciality)) selected @endif>Surgery and Urology</option>
+                        <option @if(in_array('Rheumatology', $speciality)) selected @endif>Rheumatology</option>
+                        <option @if(in_array('Gastroenterology', $speciality)) selected @endif>Gastroenterology</option>
+                        <option @if(in_array('Oral and Maxillofacial', $speciality)) selected @endif>Oral and Maxillofacial</option>
+                        <option @if(in_array('Psychiatry and many more', $speciality)) selected @endif>Psychiatry and many more</option>
+                        <option @if(in_array('Organ transplants', $speciality)) selected @endif>Organ transplants</option>
 
                     </select>
                 </div>
 
                 <div class=" col-md-4 my-3">
-                    <select class="form-control">
-                        <option >Search City</option>
-                        <option >Search City</option>
-                        <option >Search City</option>
-                        <option >Search City</option>
-                        <option >Search City</option>
-
+                    <select name="city" class="form-control common_search">
+                        <option value="">Search City</option>
+                        @if($cities->count())
+                            @foreach($cities as $city)
+                        <option {{ $city->name == $cityQuery ? 'selected' : '' }} value="{{ $city->name }}">{{ $city->name }}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
             </form>
@@ -138,3 +150,15 @@
     </section>
     <!-- Top 10 Hospitals in India Us End -->
 @endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+           $('.common_search').on('change', function(){
+               var treatment = $('select[name="treatment"]').val();
+               var speciality = $('select[name="speciality"]').val();
+               var city = $('select[name="city"]').val();
+                location.href = "{{ route('hospital.index-front') }}"+"?treatment="+treatment+"&speciality="+speciality+"&city="+city;
+           });
+        });
+    </script>
+    @endsection

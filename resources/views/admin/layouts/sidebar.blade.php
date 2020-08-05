@@ -163,6 +163,18 @@
                                     <li>
                                         <a href="{{ route('treatment.index') }}">List</a>
                                     </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> Manage Categories<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="{{ route('category.create.type',['type' => 'treatment']) }}">Add</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('category.index.type',['type' => 'treatment']) }}">List</a>
+                                            </li>
+                                        </ul>
+                                        <!-- /.nav-second-level -->
+                                    </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>

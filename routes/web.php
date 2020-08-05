@@ -40,6 +40,10 @@ Route::get('/doctor/{slug}', 'DoctorController@show')->name('doctor.show-front')
 Route::get('/hospitals', 'HospitalController@index')->name('hospital.index-front');
 Route::get('/hospital/{slug}', 'HospitalController@show')->name('hospital.show-front');
 
+
+Route::post('/treatment/getTreatments', 'TreatmentController@getTreatments')->name('treatment.getTreatments');
+Route::get('/cost', 'TreatmentController@indexFront')->name('treatment.indexFront');
+Route::get('/cost/{slug}', 'TreatmentController@show')->name('treatment.showFront');
 Auth::routes();
 
 Route::middleware('auth')->prefix('admin')->group(function(){
@@ -53,6 +57,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 	Route::get('/hospital/trash', 'Admin\HospitalController@trash')->name('hospital.trash');
 	Route::post('hospital/trash-back', 'Admin\HospitalController@backToList')->name('hospital.trash-back');
 	Route::resource('hospital', 'Admin\HospitalController');
+
 
 
 	Route::get('/treatment/trash', 'TreatmentController@trash')->name('treatment.trash');

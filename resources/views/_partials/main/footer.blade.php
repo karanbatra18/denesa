@@ -164,7 +164,7 @@
 
 
 <!--modal video start  here-->
-<div class="modal video-flex-modal  fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+{{--<div class="modal video-flex-modal  fade" id="exampleModalCenter" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -183,7 +183,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 <!--modal video  ends here-->
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -193,6 +193,3 @@
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
-
-</body>
-</html>

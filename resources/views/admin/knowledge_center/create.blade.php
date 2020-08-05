@@ -124,6 +124,16 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label>Featured</label>
+                                <select name="is_featured" class="form-control">
+                                    <option @if((isset($knowledgeCenter) && $knowledgeCenter->is_featured) == 1) selected
+                                            @endif value="1">Yes</option>
+                                    <option @if((isset($knowledgeCenter) && $knowledgeCenter->is_featured) == 0) selected
+                                            @endif value="0">No</option>
+                                </select>
+                            </div>
+
 
 
                             <div class="form-group">

@@ -22,7 +22,8 @@ class KnowledgeCenter extends Model
         'status',
         'meta_title',
         'meta_description',
-        'published_at'
+        'published_at',
+        'is_featured',
     ];
 
     /**

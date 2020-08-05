@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\KnowledgeCenter;
+use App\Testimonial;
 use Illuminate\Http\Request;
 use App\FeaturedTreatment;
 use App\FeaturedHospital;
@@ -33,6 +35,10 @@ class HomeController extends Controller
         $estimationCost = EstimationCost::first();
         $aboutMedical = AboutMedical::first();
         $introduction = Introduction::first();
-        return view('home.index',compact('treatments', 'hospitals', 'doctors', 'departmentCosts', 'estimationCost','overallFigures','aboutMedical','introduction', 'countryFlags', 'denesaServices'));
+        $featuredNews = KnowledgeCenter::where(['is_featured' => 1])->first();
+        $videoTestimonial = Testimonial::where(['is_featured' => 1])->where('video_url','!=',null)->first();
+        $featuredTestimonials = Testimonial::where(['is_featured' => 1])->where('id','!=', $videoTestimonial->id)->limit(5)->get();
+
+        return view('home.index',compact('treatments', 'hospitals', 'doctors', 'departmentCosts', 'estimationCost','overallFigures','aboutMedical','introduction', 'countryFlags', 'denesaServices', 'featuredNews', 'videoTestimonial', 'featuredTestimonials'));
     }
 }

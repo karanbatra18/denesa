@@ -72,4 +72,12 @@ class Category extends Model
     {
         return $this->belongsToMany(Post::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function treatments()
+    {
+        return $this->hasMany(Treatment::Class);
+    }
 }
