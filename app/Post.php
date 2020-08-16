@@ -21,6 +21,7 @@ class Post extends Model
         'featured_image',
         'status',
         'meta_title',
+        'is_featured',
         'meta_description',
         'published_at'
     ];

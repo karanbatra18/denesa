@@ -332,8 +332,7 @@
 </div>
 @endsection
 @section('script')
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.min.css')}}">
-    <script src="{{asset('assets/js/jquery-ui.min.js')}}" type="text/javascript"></script>
+
     <script>
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         $(document).ready(function () {

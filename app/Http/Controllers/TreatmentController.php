@@ -230,5 +230,37 @@ class TreatmentController extends Controller
         return response()->json($response);
     }
 
+    public function getSearchData(Request $request)
+    {
+        $search = $request->search;
+
+        if($search == ''){
+            $treatments = Treatment::orderby('title','asc')->limit(3)->get();
+            $doctors = Doctor::orderby('name','asc')->limit(3)->get();
+            $hospitals = Hospital::orderby('name','asc')->limit(3)->get();
+        }else{
+            $treatments = Treatment::orderby('title','asc')->where('title', 'like', '%' .$search . '%')->limit(3)->get();
+            $doctors = Doctor::orderby('name','asc')->where('name', 'like', '%' .$search . '%')->limit(3)->get();
+            $hospitals = Hospital::orderby('name','asc')->where('name', 'like', '%' .$search . '%')->limit(3)->get();
+        }
+
+        $response = array();
+        foreach($treatments as $treatment){
+            $slug = route('treatment.showFront', ['slug' => $treatment->slug]);
+            $response[] = array("url"=> $slug, "label"=>$treatment->title,  "value"=>$treatment->title, "category" => 'Treatments');
+        }
+
+        foreach($doctors as $doctor){
+            $slug1 = route('doctor.show-front', ['slug' => $doctor->slug]);
+            $response[] = array("url"=> $slug1, "label"=>$doctor->name, "value"=>$doctor->name, "category" => 'Doctors');
+        }
+
+        foreach($hospitals as $hospital){
+            $slug2 = route('hospital.show-front', ['slug' => $hospital->slug]);
+            $response[] = array("url"=> $slug2, "label"=>$hospital->name, "value"=>$hospital->name, "category" => 'Hospitals');
+        }
+
+        return response()->json($response);
+    }
 
 }

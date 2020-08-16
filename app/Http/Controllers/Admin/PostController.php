@@ -75,6 +75,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+       // dd($post);
         $categories = Category::where(['type' => 'post'])->get();
         $categoryPosts = $post->categories()->pluck('categories.id')->toArray();
         return view('admin.post.create', compact('post','categories','categoryPosts'));
@@ -106,14 +107,22 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Post $post)
     {
         $post->delete();
         return redirect()->route('admin.post.index');
+    }
+
+    
+    public function editCounters() {
+
+    }
+
+    public function updateCounters() {
+
     }
 }

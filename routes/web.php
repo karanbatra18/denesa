@@ -41,6 +41,7 @@ Route::get('/hospitals', 'HospitalController@index')->name('hospital.index-front
 Route::get('/hospital/{slug}', 'HospitalController@show')->name('hospital.show-front');
 
 
+Route::post('/treatment/getSearchData', 'TreatmentController@getSearchData')->name('treatment.getSearchData');
 Route::post('/treatment/getTreatments', 'TreatmentController@getTreatments')->name('treatment.getTreatments');
 Route::get('/cost', 'TreatmentController@indexFront')->name('treatment.indexFront');
 Route::get('/cost/{slug}', 'TreatmentController@show')->name('treatment.showFront');
@@ -95,6 +96,16 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
 
         Route::get('/home', 'HomeController@edit')->name('home.edit');
+
+        Route::get('/upload/hospitals', 'CsvUploadController@uploadHospitals')->name('csv.hospitals_upload');
+        Route::post('/upload/hospitals', 'CsvUploadController@storeHospitals')->name('csv.hospitals_store');
+
+        Route::get('/upload/doctors', 'CsvUploadController@uploadDoctors')->name('csv.doctors_upload');
+        Route::post('/upload/doctors', 'CsvUploadController@storeDoctors')->name('csv.doctors_store');
+
+        Route::get('/upload/treatments', 'CsvUploadController@uploadTreatments')->name('csv.treatments_upload');
+        Route::post('/upload/treatments', 'CsvUploadController@storeTreatments')->name('csv.treatments_store');
+
         Route::PUT('/home', 'HomeController@update')->name('home.update');
 
         Route::get('/about', 'AboutController@edit')->name('about.edit');
@@ -107,7 +118,9 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::PUT('/setting/footer/update', 'SettingsController@updateFooter')->name('setting.footer.update');
 
         Route::get('/banner/edit', 'BannerController@edit')->name('banner.edit');
+        Route::get('/blog-counters/edit', 'PostController@editCounters')->name('blog.edit-counters');
         Route::PUT('/banner/update', 'BannerController@update')->name('banner.update');
+        Route::PUT('/blog-counters/update', 'PostController@updateCounters')->name('banner.update-counters');
 
         Route::resource('post', 'PostController');
 

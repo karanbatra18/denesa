@@ -192,4 +192,56 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
+
+<script src="{{asset('assets/js/jquery-ui.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
+<style>
+    .ui-autocomplete-category {
+        font-weight: bold;
+        padding: .2em .4em;
+        margin: .8em 0 .2em;
+        line-height: 1.5;
+    }
+</style>
+<script>
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+    $.widget( "custom.catcomplete", $.ui.autocomplete, {
+        _renderMenu: function( ul, items ) {
+            var that = this,
+                currentCategory = "";
+            $.each( items, function( index, item ) {
+                if ( item.category != currentCategory ) {
+                    ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                    currentCategory = item.category;
+                }
+                that._renderItemData( ul, item );
+            });
+        }
+    });
+
+    $(document).ready(function () {
+
+        $(".form-inline input.bg-transparent").catcomplete({
+            source: function (request, response) {
+// Fetch data
+                $.ajax({
+                    url: "{{route('treatment.getSearchData')}}",
+                    type: 'post',
+                    dataType: "json",
+                    data: {
+                        _token: CSRF_TOKEN,
+                        search: request.term
+                    },
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            select: function( event, ui ) {
+                window.location.href = ui.item.url;
+            }
+        });
+    });
+</script>
+

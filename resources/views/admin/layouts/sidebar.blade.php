@@ -291,6 +291,28 @@
                                     <li>
                                         <a href="{{ route('admin.banner.edit') }}">Banners</a>
                                     </li>
+                                   {{-- <li>
+                                        <a href="{{ route('admin.blog-counters.edit') }}">Blog</a>
+                                    </li>--}}
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Upload CSV <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('admin.csv.hospitals_upload') }}">Hospitals</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.csv.doctors_upload') }}">Doctors</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.csv.treatments_upload') }}">Treatments</a>
+                                    </li>
+                                    {{-- <li>
+                                         <a href="{{ route('admin.blog-counters.edit') }}">Blog</a>
+                                     </li>--}}
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>

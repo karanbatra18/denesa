@@ -14,30 +14,33 @@
     <!-- Search Start Here -->
     <section class=" py-5 ">
         <div class="container py-4 text-center">
-            <form class="blog-search mx-auto d-flex">
-                <input type="search" class="form-control" placeholder="Search Blog..." />
-                <input type="submit" />
+            <form class="blog-search mx-auto d-flex" action="{{ route('blog.index-front') }}">
+                <input name="search" type="text" class="form-control" placeholder="Search Posts..." />
+                <input type="submit"/>
             </form>
         </div>
     </section>
     <!-- Search End Here -->
 
-
+    @if($featuredPost)
     <!-- Blog Start Here -->
     <section class=" pb-5 main-blog">
         <div class="container ">
             <div class="row">
                 <div class="col-md-10 mx-auto">
-                    <img src="assets/images/blog/blog1.jpg" alt="" />
+                    @if(!empty($featuredPost->featured_image))
+                    <img src="{{ $featuredPost->featured_image }}" alt="" />
+                    @endif
                     <ul class="list-unstyled d-flex pl-4 pt-3">
-                        <li class="pr-4"><img class="pr-2" src="assets/images/user.png" alt="" />By Denesaadmin</li>
-                        <li><img class="pr-2" src="assets/images/date.png" alt="" />Jan 30, 2020</li>
+                        <li class="pr-4"><img class="pr-2" src="{{ asset('assets/images/user.png') }}" alt="" />By {{ !empty($featuredPost->user) ? $featuredPost->user->name : 'Admin' }}</li>
+                        <li><img class="pr-2" src="{{ asset('assets/images/date.png') }}" alt="" />{{ !empty($featuredPost->published_at) ? date('M d, Y',strtotime($featuredPost->published_at)) : date('M d, Y',strtotime($featuredPost->created_at)) }}</li>
                     </ul>
-                    <h4 class="fw-600">Complete Acknowledgement About Organ Rejection After Heart Transplant Procedure</h4>
+                    <h4 class="fw-600">{{ $featuredPost->title }}</h4>
                 </div>
             </div>
         </div>
     </section>
+    @endif
     <!-- Blog End Here -->
 
     <!-- Fact Start -->

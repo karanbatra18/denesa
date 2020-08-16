@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">EDIT BLOG COUNTERS</h1>
+            <h1 class="page-header">EDIT HOME PAGE</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>

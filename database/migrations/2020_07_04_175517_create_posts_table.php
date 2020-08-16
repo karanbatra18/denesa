@@ -26,6 +26,7 @@ class CreatePostsTable extends Migration
             $table->text('featured_image')->nullable();
             $table->enum('status', ['publish','draft'])->nullable()->default('publish');
             $table->text('meta_title')->nullable();
+            $table->tinyInteger('is_featured')->default(0);
             $table->text('meta_description')->nullable();
             $table->dateTime('published_at')->nullable();
             $table->softDeletes();

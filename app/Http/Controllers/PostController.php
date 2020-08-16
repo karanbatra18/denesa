@@ -12,20 +12,34 @@ class PostController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $query = Post::whereStatus('publish')->where(function($q) {
-            $q->where('published_at', '<=' , Carbon::now())
-                ->orWhereNull('published_at');
-        });
+        $search = !empty($request->search) ? $request->search : null;
+        if(!empty($search)) {
+            $query = Post::whereStatus('publish')->where(function($q) {
+                $q->where('published_at', '<=' , Carbon::now())
+                    ->orWhereNull('published_at');
+            })->where(function($q) use ($search) {
+                $q->where('title', 'LIKE', "%{$search}%")
+                    ->orWhereNull('description', 'LIKE', "%{$search}%");
+            });
+        } else{
+            $query = Post::whereStatus('publish')->where(function($q) {
+                $q->where('published_at', '<=' , Carbon::now())
+                    ->orWhereNull('published_at');
+            });
+        }
+
 
         $posts = $query->paginate(10);
 
         $totalCount = $query->count();
 
+        $featuredPost = Post::where('is_featured',1)->orderBy('updated_at','desc')->first();
+
         $categories = Category::where(['type' => 'post'])->get();
 
-        return view('post.index', compact('posts', 'categories', 'topics', 'totalCount'));
+        return view('post.index', compact('posts', 'categories', 'topics', 'totalCount', 'featuredPost'));
 
     }
 
