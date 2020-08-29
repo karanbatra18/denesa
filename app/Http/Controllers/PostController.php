@@ -76,5 +76,27 @@ class PostController extends Controller
         return view('post.show', compact('post','relatedPosts'));
     }
 
+    public function addComment(Request $request)
+    {
+
+        $validateData = $request->validate([
+            'name' => 'required|min:3|max:255',
+            'email' => 'required|min:3|max:255',
+            'designation' => 'required|min:3|max:255',
+            'comment' => 'required|min:3',
+        ]);
+        //dd($request->all());
+        $data = $request->all();
+        $post = Post::where('id',$request->post_id)->firstOrFail();
+        $post->comments()->create($data);
+        return redirect()->back()->with('message', 'Your comment has been sent for Admin Approval.');
+    }
+
+
+
+
+
+
+
     
 }

@@ -22,8 +22,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    @php $routeName = \Request::route()->getName(); @endphp
-                    List of {{ ($routeName == 'admin.post.index') ? 'Active' : 'Trashed' }} posts
+                    Post Comments
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -31,21 +30,37 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>S.N.</th>
-                                    <th>Title</th>
-                                   {{-- <th>Description</th>--}}
+                                    <th>Comment</th>
+                                    <th>User Email</th>
+                                    <th>Designation</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @php $i=1; @endphp
-                            @forelse($posts as $post)
+                            @forelse($post->comments as $comment)
                                 <tr class="odd gradeX">
-                                    <td>{{ $i }}</td>
-                                    <td>{{ $post->title }}</td>
+                                    <td>{{ $comment->comment }}</td>
+                                    <td>{{ $comment->email }}</td>
+                                    <td>{{ $comment->designation }}</td>
+                                    <td>{{ $comment->is_approved == 0 ? 'Unapproved' : 'Approved'  }}</td>
                                     {{--<td>{!! $post->short_description !!}</td>--}}
                                     <td class="center">
-                                    @if($routeName == 'admin.post.index')
+                                        <form action="{{ route('admin.comment.destroy' , ['comment_id' => $comment->id]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="Submit" value="Delete" style="background: red; color: #fff; border: none;
+    padding: 5px; margin: 5px;">
+                                        </form>
+
+                                        <form action="{{ route('admin.comment.update' , ['comment_id' => $comment->id]) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="Submit" value="Approve" style="background: green; color: #fff; border: none;
+    padding: 5px; margin: 5px;">
+                                        </form>
+                                  {{--  @if($routeName == 'admin.post.index')
                                         <a href="{{ route('admin.post.edit' , ['post' => $post->id]) }}"><i class="fa fa-edit"></i></a> &nbsp;
                                         <a href="" onclick="deletenews( {{ $post->id }} )"><i class="fa fa-trash"></i></a>
                                         <form action="{{ route('admin.post.destroy' , ['post' => $post->id]) }}" method="POST" id="delete-form{{ $post->id }}" style="display: none;">
@@ -54,12 +69,11 @@
                                         </form>
                                     @else
                                         <a href="javascript:void(0)" onclick="backToList( {{ $post->id }} )"><i class="fa fa-recycle"></i></a>
-                                        {{--<form action="{{ route('post.trash-back') }}" method="POST" id="trash-form{{ $post->id }}" style="display: none;">
+                                        --}}{{--<form action="{{ route('post.trash-back') }}" method="POST" id="trash-form{{ $post->id }}" style="display: none;">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $post->id }}">
-                                        </form>--}}
-                                    @endif
-                                        <a href="{{ route('admin.post.comments' , ['id' => $post->id]) }}"><i class="fa fa-comment"></i></a>
+                                        </form>--}}{{--
+                                    @endif--}}
                                     </td>
                                 </tr>
                             @php $i++; @endphp

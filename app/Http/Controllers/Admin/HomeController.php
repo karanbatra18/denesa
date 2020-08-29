@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Doctor;
+use App\Hospital;
 use App\Http\Controllers\Controller;
+use App\Post;
+use App\Treatment;
 use Illuminate\Http\Request;
 use App\FeaturedTreatment;
 use App\FeaturedHospital;
@@ -20,7 +24,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard.index');
+        $doctors = Doctor::count();
+        $hospitals = Hospital::count();
+        $treatments = Treatment::count();
+        $posts = Post::count();
+
+        return view('admin.dashboard.index', compact('doctors', 'hospitals', 'treatments', 'posts'));
     }
 
     public function edit()

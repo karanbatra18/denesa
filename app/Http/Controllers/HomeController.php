@@ -41,4 +41,23 @@ class HomeController extends Controller
 
         return view('home.index',compact('treatments', 'hospitals', 'doctors', 'departmentCosts', 'estimationCost','overallFigures','aboutMedical','introduction', 'countryFlags', 'denesaServices', 'featuredNews', 'videoTestimonial', 'featuredTestimonials'));
     }
+
+    public function consultationForm(Request $request)
+    {
+        $validateData = $request->validate([
+            'name' => 'required|min:3|max:255',
+            'phone' => 'required|min:10',
+            'email' => 'required|email',
+            'country' => 'required',
+            'treatment_details' => 'required|min:3',
+        ]);
+
+        $data = $request->all();
+        //dd($data);
+        \Mail::to('karanbatra@yopmail.com')->send(new \App\Mail\ConsultationMail($data));
+
+        return back()->with('success','request successfully sent!');
+
+
+    }
 }

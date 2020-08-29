@@ -18,12 +18,12 @@
                         <i class="fa fa-hospital-o fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">84</div>
+                        <div class="huge">{{ $hospitals }}</div>
                         <div>Hospitals!</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="{{ url('admin/hospital') }}">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -41,12 +41,12 @@
                         <i class="fa fa-user-md fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">1258</div>
+                        <div class="huge">{{ $doctors }}</div>
                         <div>Doctors!</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="{{ url('admin/doctor') }}">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -64,12 +64,12 @@
                         <i class="fa fa-stethoscope fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">395</div>
+                        <div class="huge">{{ $treatments }}</div>
                         <div>Treatments!</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="{{ url('admin/treatment') }}">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -87,12 +87,12 @@
                         <i class="fa fa-support fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">50</div>
-                        <div>Categories!</div>
+                        <div class="huge">{{ $posts }}</div>
+                        <div>Posts!</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="{{ url('admin/post') }}">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

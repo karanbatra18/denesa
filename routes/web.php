@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 Route::get('/about', 'AboutController@index')->name('about');
+Route::post('/consultation_form', 'HomeController@consultationForm')->name('consultation_form');
 //Route::get('/testimonial', 'TestimonialController@index')->name('testimonial');
 Route::get('/knowledge-center/category/{category}', 'KnowledgeCenterController@indexCategory')->name('knowledge-center.category');
 Route::get('/knowledge-center/topic/{topic}', 'KnowledgeCenterController@indexTag')->name('knowledge-center.topic');
@@ -46,7 +47,7 @@ Route::post('/treatment/getTreatments', 'TreatmentController@getTreatments')->na
 Route::get('/cost', 'TreatmentController@indexFront')->name('treatment.indexFront');
 Route::get('/cost/{slug}', 'TreatmentController@show')->name('treatment.showFront');
 Auth::routes();
-
+Route::post('add_comment', 'PostController@addComment')->name('post_comment');
 Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/dashboard', 'Admin\HomeController@index')->name('dashboard');
 
@@ -91,7 +92,10 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 
     Route::get('/topic/create/{type}', 'TopicController@create')->name('topic.create.type');
     Route::get('/topic/index/{type}', 'TopicController@index')->name('topic.index.type');
+
     Route::resource('topic', 'TopicController');
+
+
 
     Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
 
@@ -119,8 +123,11 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 
         Route::get('/banner/edit', 'BannerController@edit')->name('banner.edit');
         Route::get('/blog-counters/edit', 'PostController@editCounters')->name('blog.edit-counters');
+        Route::get('/post/{id}/comments', 'PostController@comments')->name('post.comments');
         Route::PUT('/banner/update', 'BannerController@update')->name('banner.update');
         Route::PUT('/blog-counters/update', 'PostController@updateCounters')->name('banner.update-counters');
+        Route::DELETE('/comment/destroy/{comment_id}', 'PostController@deleteComment')->name('comment.destroy');
+        Route::PUT('/comment/update/{comment_id}', 'PostController@updateCommentStatus')->name('comment.update');
 
         Route::resource('post', 'PostController');
 

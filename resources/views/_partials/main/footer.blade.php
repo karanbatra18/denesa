@@ -1,36 +1,41 @@
 <footer class="site-footer position-relative overlay"
-        style="background:url(assets/images/footer-bg.jpg) no-repeat center center / cover;	">
+        style="background:url({{ asset('assets/images/footer-bg.jpg') }}) no-repeat center center / cover;    ">
     <div class="container ">
-        <form class="row ">
+        @include('flash-message')
+        <form name="consultation_form" id="consultation_form" method="post" action="{{ route('consultation_form') }}"
+              class="row ">
             <div class="col-md-10 mx-auto">
-
+                @csrf
                 <div class="bg-white p-5 free-consultation">
                     <h4 class="text-center h4 text-dark mb-4 fw-600">Free Consultation</h4>
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Full Name*"/>
+                                <input type="text" class="form-control" placeholder="Full Name*" name="name"/>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="eamil" class="form-control" placeholder="Email*"/>
+                                <input type="eamil" class="form-control" placeholder="Email*" name="email"/>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Phone Number*"/>
+                                <input type="text" class="form-control" placeholder="Phone Number*" name="phone"
+                                       name="phone"/>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Country*"/>
+                                <input type="text" class="form-control" placeholder="Country*" name="country"/>
                             </div>
                         </div>
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <textarea class="form-control" rows="4"
-                                          placeholder="Details (Treatment Required*)"/></textarea>
+                                          placeholder="Details (Treatment Required*)"
+                                          name="treatment_details"/></textarea>
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
@@ -39,6 +44,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </form>
@@ -51,7 +57,8 @@
                 <address>
                     <ul class="list-unstyled">
                         <li class="position-relative "><span class="d-inline-block position-absolute l-0 t-0"><img
-                                        src="assets/images/location.png" alt=""/></span>{!! !empty($footerIntroduction->address) ? $footerIntroduction->address : ''!!}
+                                        src="assets/images/location.png"
+                                        alt=""/></span>{!! !empty($footerIntroduction->address) ? $footerIntroduction->address : ''!!}
                         </li>
 
                         <li class="position-relative "><span class="d-inline-block position-absolute l-0 t-0"><svg
@@ -69,7 +76,8 @@
 								</g>
 							</g>
 
-					       </svg></span><a href="tel:(+91)7428231453">{{ !empty($footerIntroduction->phone) ? $footerIntroduction->phone : ''}}</a>
+					       </svg></span><a
+                                    href="tel:(+91)7428231453">{{ !empty($footerIntroduction->phone) ? $footerIntroduction->phone : ''}}</a>
                         </li>
                         <li class="position-relative "><span class="d-inline-block position-absolute l-0 t-0"><svg
                                         version="1.1" height="15px" style="fill:#b4dbf0;" id="Layer_1"
@@ -89,7 +97,8 @@
 								</g>
 							</g>
 						</g>
-						</svg></span><a href="mailto:{{ !empty($footerIntroduction->email1) ? $footerIntroduction->email1 : '' }}">{{ !empty($footerIntroduction->email1) ? $footerIntroduction->email1 : '' }}</a><br/>
+						</svg></span><a
+                                    href="mailto:{{ !empty($footerIntroduction->email1) ? $footerIntroduction->email1 : '' }}">{{ !empty($footerIntroduction->email1) ? $footerIntroduction->email1 : '' }}</a><br/>
                             <a href="mailto:{{ !empty($footerIntroduction->email2) ? $footerIntroduction->email2 : ''}}">{{ !empty($footerIntroduction->email2) ? $footerIntroduction->email2 : '' }}</a>
                         </li>
                     </ul>
@@ -138,10 +147,15 @@
 
             <div class="col-lg-4 d-flex order-lg-2 py-2 justify-content-center">
                 <ul class="list-unstyled social mb-0 d-flex">
-                    <li class="f"><a href="{{ !empty($socialLinks->facebook_url) ? $socialLinks->facebook_url : '#' }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                    <li class="t"><a href="{{ !empty($socialLinks->twitter_url) ? $socialLinks->twitter_url : '#' }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li class="l"><a href="{{ !empty($socialLinks->linkedin_url) ? $socialLinks->linkedin_url : '#' }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li class="i"><a href="{{ !empty($socialLinks->instagram_url) ? $socialLinks->instagram_url : '#' }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li class="f"><a href="{{ !empty($socialLinks->facebook_url) ? $socialLinks->facebook_url : '#' }}"
+                                     target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="t"><a href="{{ !empty($socialLinks->twitter_url) ? $socialLinks->twitter_url : '#' }}"
+                                     target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li class="l"><a href="{{ !empty($socialLinks->linkedin_url) ? $socialLinks->linkedin_url : '#' }}"
+                                     target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li class="i"><a
+                                href="{{ !empty($socialLinks->instagram_url) ? $socialLinks->instagram_url : '#' }}"
+                                target="_blank"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
             <div class="col-lg-4 order-lg-3 py-2 justify-content-center align-items-center d-flex justify-content-lg-end">
@@ -152,7 +166,8 @@
                 </ul>
             </div>
             <div class="col-lg-4 order-lg-1 py-2 text-center text-lg-left">
-                <p class="mb-2 mb-lg-0">© {{ !empty($socialLinks->copyright_text) ? $socialLinks->copyright_text : '2020 Denesa Health. All Rights Reserved.' }}</p>
+                <p class="mb-2 mb-lg-0">
+                    © {{ !empty($socialLinks->copyright_text) ? $socialLinks->copyright_text : '2020 Denesa Health. All Rights Reserved.' }}</p>
             </div>
         </div>
 
@@ -206,16 +221,16 @@
 <script>
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
-    $.widget( "custom.catcomplete", $.ui.autocomplete, {
-        _renderMenu: function( ul, items ) {
+    $.widget("custom.catcomplete", $.ui.autocomplete, {
+        _renderMenu: function (ul, items) {
             var that = this,
                 currentCategory = "";
-            $.each( items, function( index, item ) {
-                if ( item.category != currentCategory ) {
-                    ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+            $.each(items, function (index, item) {
+                if (item.category != currentCategory) {
+                    ul.append("<li class='ui-autocomplete-category'>" + item.category + "</li>");
                     currentCategory = item.category;
                 }
-                that._renderItemData( ul, item );
+                that._renderItemData(ul, item);
             });
         }
     });
@@ -238,7 +253,7 @@
                     }
                 });
             },
-            select: function( event, ui ) {
+            select: function (event, ui) {
                 window.location.href = ui.item.url;
             }
         });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Comment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePost;
 use App\Http\Requests\UpdatePost;
@@ -124,5 +125,22 @@ class PostController extends Controller
 
     public function updateCounters() {
 
+    }
+
+    public function comments(Request $request, $id) {
+        $post = Post::where('id',$id)->firstOrFail();
+        return view('admin.post.comments', compact('post'));
+    }
+
+    public function deleteComment(Request $request, $id) {
+        $comment = Comment::where('id',$id)->firstOrFail();
+        $comment->delete();
+        return redirect()->back();
+    }
+
+    public function updateCommentStatus(Request $request, $id) {
+        $comment = Comment::where('id',$id)->firstOrFail();
+        $comment->update(['is_approved' => 1]);
+        return redirect()->back();
     }
 }

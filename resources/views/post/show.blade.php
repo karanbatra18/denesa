@@ -14,6 +14,11 @@
     <!-- Search Start Here -->
     <section class=" py-5 ">
         <div class="container py-4 ">
+            @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-xl-3 d-none d-xl-block">
                     <form class="blog-search mx-auto d-flex mb-4">
@@ -57,23 +62,37 @@
                         <div class="comment-box pt-5">
                             <h4>Leave A Reply</h4>
                             <p>Your email address will not be published. Required fields are marked*.</p>
-                            <form >
+                            <form name="add_comment" id="add_comment" action="{{ route('post_comment') }}" method="post">
+                                @csrf
                                 <div class="row">
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
                                     <div class="col-md-12 form-group ">
                                         <label>Comment</label>
-                                        <textarea class="form-control border" rows="5"></textarea>
+                                        <textarea class="form-control border" rows="5" name="comment">{{ old('comment') }}</textarea>
+                                        @error('comment')
+                                        <label class="error">{{ $message }}</label>
+                                        @enderror
                                     </div>
                                     <div class="col-md-12 form-group ">
                                         <label>Designation</label>
-                                        <input type="text" class="form-control border" />
+                                        <input type="text" class="form-control border" name="designation" value="{{ old('designation') }}" />
+                                        @error('designation')
+                                        <label class="error">{{ $message }}</label>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6 form-group ">
                                         <label>Name*</label>
-                                        <input type="text" class="form-control border" />
+                                        <input type="text" class="form-control border" name="name" value="{{ old('name') }}"/>
+                                        @error('name')
+                                        <label class="error">{{ $message }}</label>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6 form-group ">
                                         <label>Email*</label>
-                                        <input type="email" class="form-control border" />
+                                        <input type="email" class="form-control border" name="email" value="{{ old('email') }}"/>
+                                        @error('email')
+                                        <label class="error">{{ $message }}</label>
+                                        @enderror
                                     </div>
                                     <div class="col-md-12 ">
 
@@ -118,3 +137,8 @@
 
     <!-- Blog Item Eend Here -->
 @endsection
+<style>
+    .error{
+        color:red;
+    }
+    </style>

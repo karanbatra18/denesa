@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Doctor;
 use App\Hospital;
 use App\Http\Controllers\Controller;
@@ -24,8 +25,8 @@ class CsvUploadController extends Controller
         //$file = public_path('file/test.csv');
 
         $customerArr = $this->csvToArray1($path);
-       // dd($customerArr);
-       // for ($i = 0; $i < count($customerArr); $i++) {
+        // dd($customerArr);
+        // for ($i = 0; $i < count($customerArr); $i++) {
         foreach ($customerArr as $customer) {
 
             $data = [
@@ -62,16 +63,11 @@ class CsvUploadController extends Controller
 
     public function storeDoctors(Request $request)
     {
-        //dd($request->all());
         $path = $request->file('filename')->getRealPath();
-        //dd($path);
-        //$file = public_path('file/test.csv');
-
         $customerArr = $this->csvToArray1($path);
-        // dd($customerArr);
-        // for ($i = 0; $i < count($customerArr); $i++) {
-        foreach ($customerArr as $customer) {
 
+        foreach ($customerArr as $customer) {
+           // dd($customer);
             $data = [
                 'name' => $customer['name'] ?? null,
                 'designation' => $customer['designation'] ?? null,
@@ -89,30 +85,41 @@ class CsvUploadController extends Controller
                 'zip_code' => $customer['zip_code'] ?? null,
                 'image' => $customer['image'] ?? null,
                 'slug' => $customer['slug'] ?? null,
-                'hospital_id' => $customer['hospital_id'] ?? null,
-                'category_id' => $customer['category_id'] ?? null,
             ];
+            if (isset($customer['category']) && !empty($customer['category'])) {
+                $category = Category::firstOrCreate([
+                    'name' => $customer['category'],
+                    'type' => 'doctor',
+                ]);
+
+                $data['category_id'] = $category->id;
+            }
+
+            if (isset($customer['hospital']) && !empty($customer['hospital'])) {
+                $hospital = Hospital::firstOrCreate([
+                    'name' => trim($customer['name'])
+                ]);
+
+                $data['hospital_id'] = $hospital->id;
+            }
+
             Doctor::firstOrCreate($data);
         }
 
-        dd('Jobi done or what ever');
+       return redirect()->back();
     }
 
     public function uploadTreatments(Request $request)
     {
-        return view('admin.csv_upload.doctors');
+        return view('admin.csv_upload.treatments');
     }
 
     public function storeTreatments(Request $request)
     {
-        //dd($request->all());
         $path = $request->file('filename')->getRealPath();
-        //dd($path);
-        //$file = public_path('file/test.csv');
 
         $customerArr = $this->csvToArray1($path);
-        // dd($customerArr);
-        // for ($i = 0; $i < count($customerArr); $i++) {
+
         foreach ($customerArr as $customer) {
 
             $data = [
@@ -121,18 +128,71 @@ class CsvUploadController extends Controller
                 'transplant_price' => $customer['transplant_price'] ?? null,
                 'travellers_count' => $customer['travellers_count'] ?? null,
                 'hospital_days_count' => $customer['hospital_days_count'] ?? null,
-                'days_outside_count' => $customer['days_outside_count'] ?? null,
-                'total_days_count' => $customer['total_days_count'] ?? null,
+                'days_outside_count' => $customer['days_outside_india'] ?? null,
+                'total_days_count' => $customer['total_days_in_india'] ?? null,
                 'introduction' => $customer['introduction'] ?? null,
                 'cost' => $customer['cost'] ?? null,
                 'featured_image' => $customer['featured_image'] ?? null,
-                'category_id' => $customer['category_id'] ?? null
 
             ];
-            Treatment::firstOrCreate($data);
+
+            if (isset($customer['category']) && !empty($customer['category'])) {
+                $category = Category::firstOrCreate([
+                    'name' => $customer['category'],
+                    'type' => 'treatment',
+                ]);
+
+                $data['category_id'] = $category->id;
+            }
+
+            $treatment = Treatment::firstOrCreate($data);
+
+            if(!empty($customer['doctors'])) {
+                $doctors  = explode(',', $customer['doctors']);
+                $doctorsArray = Doctor::whereIn('name',$doctors)->get()->pluck('id')->toArray();
+                $treatment->doctors()->attach($doctorsArray);
+            }
+
+            if(!empty($customer['hospitals'])) {
+                $hospitals  = explode(',', $customer['hospitals']);
+                $hospitalsArray = Hospital::whereIn('name',$hospitals)->get()->pluck('id')->toArray();
+                $treatment->hospitals()->attach($hospitalsArray);
+            }
+
+
+            if(!empty($customer['specifications_titles'])) {
+                $specificationsTitles  = explode(',', $customer['specifications_titles']);
+                $specificationsDescriptions  = explode('#', $customer['specifications_descriptions']);
+                if(count($specificationsTitles)) {
+                    for($i=0; $i <= count($specificationsTitles); $i++) {
+                        $specs = [
+                            'title' => $specificationsTitles[0],
+                            'description' => $specificationsDescriptions[0],
+                        ];
+                        $treatment->specifications()->create($specs);
+                    }
+                }
+
+            }
+
+            if(!empty($customer['faqs'])) {
+                $faqsTitles  = explode(',', $customer['faqs_titles']);
+                $faqsDescriptions  = explode('#', $customer['faqs_descriptions']);
+                if(count($faqsTitles)) {
+                    for($i=0; $i <= count($faqsTitles); $i++) {
+                        $faq = [
+                            'title' => $faqsTitles[0],
+                            'description' => $faqsDescriptions[0],
+                        ];
+                        $treatment->faqs()->create($faq);
+                    }
+                }
+
+            }
+
         }
 
-        dd('Jobi done or what ever');
+        return redirect()->back();
     }
 
 
