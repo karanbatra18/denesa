@@ -21,20 +21,14 @@
             @endif
             <div class="row">
                 <div class="col-xl-3 d-none d-xl-block">
-                    <form class="blog-search mx-auto d-flex mb-4">
-                        <input type="search" class="form-control" placeholder="Search Blog..." />
+                    <form class="blog-search mx-auto d-flex mb-4" action="{{ route('blog.index-front') }}">
+                        <input name="search" type="text" class="form-control" placeholder="Search Blog..." />
                         <input type="submit" />
                     </form>
                     <div class="blog-sidebar single-blog-sidebar text-left position-sticky">
                         <h6 class="theme-alt-bg open-sans p-4 fw-600 rounded-top text-white mb-0">TABLE OF CONTENTS</h6>
-                        <ul class="list-unstyled mb-0 ">
-                            <li> <a class="py-2  d-flex px-4 align-items-center" href="#box-1"><i class="fas fa-chevron-right pr-3"></i>Things To Consider </a></li>
-                            <li> <a class="py-2 d-flex px-4 align-items-center" href="#box-2"><i class="fas fa-chevron-right pr-3"></i>Following the Treatment For Rejection </a></li>
-                            <li>
-                                <a class="py-2 d-flex px-4 align-items-center" href="#box-3"><i class="fas fa-chevron-right pr-3"></i>Immunosuppressants</a></li>
-                            <li> <a class="py-2 d-flex px-4 align-items-center" href="#box-4"><i class="fas fa-chevron-right pr-3"></i>TGene Express Profiling</a></li>
-                            <li> <a class="py-2 d-flex px-4  align-items-center" href="#box-5"><i class="fas fa-chevron-right pr-3"></i>Final Words</a></li>
-                        </ul>
+                        <ul class="list-unstyled mb-0 toc">
+                                             </ul>
                     </div>
                 </div>
                 <div class="col-xl-9 ">
@@ -137,6 +131,33 @@
 
     <!-- Blog Item Eend Here -->
 @endsection
+@section('script')
+    <script>
+        var hid=0;
+        $('.single-main-blog  .position-relative h4').each(function() {
+            $(this).attr('data-toc',hid);
+            $(".toc").append('<li><a href="javascript:;" class="py-2 d-flex px-4  align-items-center"><i class="fas fa-chevron-right pr-3"></i>'+$(this).text()+'</a></li>');
+            hid += 1;
+        });
+        $('.toc li:first-child a').addClass('active');
+        $('.toc li a').on('click',function(){
+            var i = $(this).closest('li').index();
+            $('html, body').animate({
+                scrollTop:  $('.single-main-blog  .position-relative h4').eq(i).offset().top - 60
+            }, 1500, 'easeInOutQuint');
+            $('.toc li a').removeClass('active');
+            $(this).addClass('active');
+        });
+        $(window).scroll(function () {
+            $('.single-main-blog  .position-relative h4').each(function () {
+                if ($(window).scrollTop() > $(this).offset().top - $(window).height() + ($(this).outerHeight()/2)) {
+                    var id = $(this).attr('data-toc');
+                    // $('.toc button').eq(id).addClass('fw-600 theme-color').siblings().removeClass('fw-600 theme-color');
+                }
+            });
+        });
+    </script>
+    @endsection
 <style>
     .error{
         color:red;

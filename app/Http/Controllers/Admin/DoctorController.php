@@ -23,15 +23,6 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //DB::connection()->enableQueryLog();
-        /*$doctors = Cache::remember('doctors', Config::get('constants.seconds.one_second'), function () {
-            return Doctor::get();
-        });*/
-
-        //$queries = DB::getQueryLog();
-
-        //\Log::info($queries);
-
         $doctors = Doctor::get();
         return view('admin.doctor.index', compact('doctors'));
     }
@@ -50,10 +41,10 @@ class DoctorController extends Controller
     public function backToList(Request $request)
     {
         $id = $request->input('id');
-        DB::connection()->enableQueryLog();
+
         Doctor::whereId($id)->restore();
         $queries = DB::getQueryLog();
-        \Log::info($queries);
+
         return redirect()->route('doctor.index');
     }
 

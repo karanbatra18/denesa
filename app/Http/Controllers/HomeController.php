@@ -56,7 +56,7 @@ class HomeController extends Controller
         //dd($data);
         \Mail::to('karanbatra@yopmail.com')->send(new \App\Mail\ConsultationMail($data));
 
-        return back()->with('success','request successfully sent!');
+        return back()->with('success','Request successfully sent!');
 
 
     }

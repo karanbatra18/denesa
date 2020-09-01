@@ -46,7 +46,7 @@
                                    {{-- <td>{!! $hospital->description !!}</td>--}}
                                     <td class="center">
                                     @if($routeName == 'hospital.index')
-                                        <a href="{{ route('hospital.show', ['hospital' => $hospital->id]) }}" target="_blank"><i class="fa fa-eye"></i></a> &nbsp;
+                                        {{--<a href="{{ route('hospital.show', ['hospital' => $hospital->id]) }}" target="_blank"><i class="fa fa-eye"></i></a> &nbsp;--}}
                                         <a href="{{ route('hospital.edit' , ['hospital' => $hospital->id]) }}"><i class="fa fa-edit"></i></a> &nbsp;
                                         <a href="" onclick="deletehospital( {{ $hospital->id }} )"><i class="fa fa-trash"></i></a>
                                         <form action="{{ route('hospital.destroy' , ['hospital' => $hospital->id]) }}" method="POST" id="delete-form{{ $hospital->id }}" style="display: none;">

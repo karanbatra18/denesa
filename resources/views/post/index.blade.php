@@ -15,6 +15,7 @@
     <section class=" py-5 ">
         <div class="container py-4 text-center">
             <form class="blog-search mx-auto d-flex" action="{{ route('blog.index-front') }}">
+                @csrf
                 <input name="search" type="text" class="form-control" placeholder="Search Posts..." />
                 <input type="submit"/>
             </form>

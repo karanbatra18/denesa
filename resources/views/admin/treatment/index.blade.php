@@ -47,7 +47,7 @@
                                     
                                     <td class="center">
                                     @if($routeName == 'treatment.index')
-                                        <a href="{{ route('treatment.show', ['treatment' => $treatment->id]) }}" target="_blank"><i class="fa fa-eye"></i></a> &nbsp;
+                                        {{--<a href="{{ route('treatment.show', ['treatment' => $treatment->id]) }}" target="_blank"><i class="fa fa-eye"></i></a> &nbsp;--}}
                                         <a href="{{ route('treatment.edit' , ['treatment' => $treatment->id]) }}"><i class="fa fa-edit"></i></a> &nbsp;
                                         <a href="" onclick="deletetreatment( {{ $treatment->id }} )"><i class="fa fa-trash"></i></a>
                                         <form action="{{ route('treatment.destroy' , ['treatment' => $treatment->id]) }}" method="POST" id="delete-form{{ $treatment->id }}" style="display: none;">

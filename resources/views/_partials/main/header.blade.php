@@ -116,3 +116,4 @@
     }
     ?>
 </header>
+@include('flash-message')

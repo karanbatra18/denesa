@@ -59,7 +59,7 @@
                                             <input type="hidden" name="id" value="{{ $post->id }}">
                                         </form>--}}
                                     @endif
-                                        <a href="{{ route('admin.post.comments' , ['id' => $post->id]) }}"><i class="fa fa-comment"></i></a>
+                                        <a href="{{ route('admin.post.comments' , ['id' => $post->id]) }}" style="margin-left:3px;"><i class="fa fa-comment"></i></a>
                                     </td>
                                 </tr>
                             @php $i++; @endphp

@@ -1,34 +1,103 @@
+<div id="myModal1" class="modal popup-form fade ">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+            <div class="modal-body p-0">
+                <div class="row">
+                    <div class="col-md-3 popup-content text-white py-4 ">
+
+                        <p>Every medical condition is unique. The customer support team of Denesa Health after analysing your medical reports, forward it to a few of the top hospitals in India. Medical specialists at the hospital review your diagnosis report and provide with a personalised quote.
+                        </p><p>
+                            Share your medical concern with us now, to get an instant estimate for your approximate expenses for your treatment in India.</p>
+                        <img src="assets/images/brand-logos-DH2.jpg" alt="" />
+
+                    </div>
+                    <div class="col-md-9 py-4">
+                        <h2>FREE CONSULTATION</h2>
+                        ( For Best Treatment In India )
+                        <form class=" mt-4 pr-3">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" placeholder="Email Address">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Phone Number">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Country">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <textarea type="text" class="form-control" rows="5" placeholder="Message"></textarea>
+                                    <button type="submit" class="themebtn mt-4">Connect Now</button>
+                                </div>
+                            </div>
+                        </form>
+                        <p>By seeking our services, you abide by the Terms & Conditions and Privacy Policy of the company. Your use and access to any of the facilities offered on the website will subject to the same. </p>
+                        <div class="text-center mt-5">
+                            <img src="assets/images/logo.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="site-footer position-relative overlay"
         style="background:url({{ asset('assets/images/footer-bg.jpg') }}) no-repeat center center / cover;    ">
     <div class="container ">
-        @include('flash-message')
+
         <form name="consultation_form" id="consultation_form" method="post" action="{{ route('consultation_form') }}"
               class="row ">
             <div class="col-md-10 mx-auto">
                 @csrf
                 <div class="bg-white p-5 free-consultation">
+
                     <h4 class="text-center h4 text-dark mb-4 fw-600">Free Consultation</h4>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Full Name*" name="name"/>
+                                @if ($errors->has('name'))
+                                    <span id="name-error" class="error text-danger"
+                                          for="input-name">{{ $errors->first('name') }}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <input type="eamil" class="form-control" placeholder="Email*" name="email"/>
+                                @if ($errors->has('email'))
+                                    <span id="name-error" class="error text-danger"
+                                          for="input-email">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Phone Number*" name="phone"
                                        name="phone"/>
+                                @if ($errors->has('phone'))
+                                    <span id="phone-error" class="error text-danger"
+                                          for="input-phone">{{ $errors->first('phone') }}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Country*" name="country"/>
+                                @if ($errors->has('country'))
+                                    <span id="country-error" class="error text-danger"
+                                          for="input-country">{{ $errors->first('country') }}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-12 mb-3">
@@ -36,6 +105,10 @@
                                 <textarea class="form-control" rows="4"
                                           placeholder="Details (Treatment Required*)"
                                           name="treatment_details"/></textarea>
+                                @if ($errors->has('treatment_details'))
+                                    <span id="treatment_details-error" class="error text-danger"
+                                          for="input-treatment_details">{{ $errors->first('treatment_details') }}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
