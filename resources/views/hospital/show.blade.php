@@ -33,7 +33,7 @@
 
         <div id="about-hospital" class="pb-5">
 
-            <img src="assets/images/hospital.jpg" alt="">
+            <img src="{{ asset($hospital->featured_image) }}" alt="">
             <div class="row bg-transparent hospital-text-box">
                 <div class="col-md-11 mx-auto">
                     <div class="bg-white p-4 p-lg-5 ">
