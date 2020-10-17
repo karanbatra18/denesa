@@ -179,3 +179,20 @@
     </section>
     <!-- Top 10 Hospitals in India Us End -->
 @endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('#specializations ul').addClass('list-unstyled ul_list');
+            $('#specializations ul li').addClass('mb-4');
+
+            $('#awards ul').addClass('list-unstyled ul_list mt-4');
+            $('#awards ul li').addClass('mb-4');
+
+            $('#work-exp ul').addClass('list-unstyled ul_list mt-4');
+            $('#work-exp ul li').addClass('my-3 pb-3');
+
+            $('#education-training ul').addClass('list-unstyled ul_list mt-4');
+            $('#education-training ul li').addClass('mt-3 mb-2 pb-3');
+        });
+    </script>
+@endsection

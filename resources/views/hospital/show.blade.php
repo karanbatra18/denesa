@@ -175,3 +175,12 @@
 </section>
 <!-- Top 10 Hospitals in India Us End -->
 @endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('#infrastructure ol li').addClass('mb-3 pl-3');
+            $('#infrastructure ol').addClass('pl-3 mt-4 mb-0');
+            $('#facilities ul').addClass('list-unstyled mt-3');
+        });
+    </script>
+    @endsection

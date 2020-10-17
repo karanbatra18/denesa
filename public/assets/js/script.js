@@ -183,12 +183,12 @@ $('.navbar-toggler').click(function(){
 });
 
   // add for popup box
-        $(window).on('load',function(){
+     /*   $(window).on('load',function(){
            setTimeout(function(){ 	
 			$('.popup-form').addClass('show');
 			$('body').addClass('overflow-hidden');
 			}, 3000); 
-       });
+       });*/
 
 $('.popup-form .close').click(function(){
 	$('.popup-form').addClass('d-none');

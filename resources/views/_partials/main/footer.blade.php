@@ -1,4 +1,4 @@
-<div id="myModal1" class="modal popup-form fade ">
+{{--<div id="myModal1" class="modal popup-form fade ">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ">
 
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 
 <footer class="site-footer position-relative overlay"
         style="background:url({{ asset('assets/images/footer-bg.jpg') }}) no-repeat center center / cover;    ">
@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Full Name*" name="name"/>
+                                <input type="text" class="form-control" placeholder="Full Name*" name="name" required/>
                                 @if ($errors->has('name'))
                                     <span id="name-error" class="error text-danger"
                                           for="input-name">{{ $errors->first('name') }}</span>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="eamil" class="form-control" placeholder="Email*" name="email"/>
+                                <input type="eamil" class="form-control" placeholder="Email*" name="email" required/>
                                 @if ($errors->has('email'))
                                     <span id="name-error" class="error text-danger"
                                           for="input-email">{{ $errors->first('email') }}</span>
@@ -84,7 +84,7 @@
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Phone Number*" name="phone"
-                                       name="phone"/>
+                                       name="phone" required/>
                                 @if ($errors->has('phone'))
                                     <span id="phone-error" class="error text-danger"
                                           for="input-phone">{{ $errors->first('phone') }}</span>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Country*" name="country"/>
+                                <input type="text" class="form-control" placeholder="Country*" name="country" required/>
                                 @if ($errors->has('country'))
                                     <span id="country-error" class="error text-danger"
                                           for="input-country">{{ $errors->first('country') }}</span>
@@ -104,7 +104,7 @@
                             <div class="form-group">
                                 <textarea class="form-control" rows="4"
                                           placeholder="Details (Treatment Required*)"
-                                          name="treatment_details"/></textarea>
+                                          name="treatment_details" required/></textarea>
                                 @if ($errors->has('treatment_details'))
                                     <span id="treatment_details-error" class="error text-danger"
                                           for="input-treatment_details">{{ $errors->first('treatment_details') }}</span>

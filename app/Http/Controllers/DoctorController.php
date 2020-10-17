@@ -39,9 +39,9 @@ class DoctorController extends Controller
         }
 
         if($specialityQuery) {
-            $doctors = Doctor::where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $doctorIds)->paginate(2);
+            $doctors = Doctor::where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $doctorIds)->paginate(10);
         } else {
-            $doctors = Doctor::where($cityCondition)->whereIn('id', $doctorIds)->paginate(2);
+            $doctors = Doctor::where($cityCondition)->whereIn('id', $doctorIds)->paginate(10);
         }
         return view('doctor.index', compact('doctors','cities', 'treatments', 'specialityQuery', 'cityQuery', 'treatmentQuery'));
     }

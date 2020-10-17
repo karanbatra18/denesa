@@ -36,9 +36,9 @@ class HospitalController extends Controller
         }
 
         if($specialityQuery) {
-            $hospitals = Hospital::where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $hospitalIds)->paginate(2);
+            $hospitals = Hospital::where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $hospitalIds)->paginate(10);
         } else {
-            $hospitals = Hospital::where($cityCondition)->whereIn('id', $hospitalIds)->paginate(2);
+            $hospitals = Hospital::where($cityCondition)->whereIn('id', $hospitalIds)->paginate(10);
         }
 
 
