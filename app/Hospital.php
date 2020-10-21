@@ -29,7 +29,9 @@ class Hospital extends Model
    	    'food',
    	    'treatment_related',
    	    'languauge',
-   	    'transportation'
+   	    'transportation',
+        'meta_title',
+        'meta_description'
 
     ];
 

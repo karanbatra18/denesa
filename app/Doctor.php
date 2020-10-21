@@ -29,6 +29,8 @@ class Doctor extends Model
         'zip_code',
         'image',
         'slug',
+        'meta_title',
+        'meta_description'
     ];
 
     /**

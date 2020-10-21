@@ -200,6 +200,20 @@
                         <!-- /.col-lg-6 (nested) -->
                         <div class="col-lg-6">
                             <div class="form-group">
+                                <label>Seo Title</label>
+                                <input class="form-control" name="meta_title" placeholder="Enter the Seo Title" value="{{ isset($treatment->meta_title) ? $treatment->meta_title : old('meta_title') }}">
+                                @error('meta_title')
+                                <label class="error">{{ $message }}</label>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Seo Description</label>
+                                <textarea name="meta_description" class="form-control" {{--id="myeditor2"--}} rows="3">{{ (old('meta_description') != null) ? old('meta_description') : (!empty($treatment) ? $treatment->meta_description : null) }}</textarea>
+                                @error('meta_description')
+                                <label class="error">{{ $message }}</label>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <h4 class="top_to_height object_denesa">Treatment Specifications</h4>
                                 @if(isset($specifications) && $specifications->count())
                                     @foreach($specifications as $specification)
@@ -242,6 +256,7 @@
                                 @if(isset($faqs) && $faqs->count())
                                     @foreach($faqs as $faqs)
                                         <div class="panel panel-default treat">
+                                            <i class="fa fa-times-circle-o fa-fw close_gallery_panel"></i>
                                             <div class="panel-heading treat_head">
                                                 <label>FAQ</label>
                                                 <i style="float: right" class="fa fa-minus fa-fw"></i>
@@ -394,6 +409,13 @@
                 margin-top: 5px;
                 display: inline-block;
             }
+            .close_gallery_panel {
+                float: right;
+                position: relative;
+                bottom: 8px;
+                left: 10px;
+                font-size: 18px;
+            }
         </style>
         <!-- creating a CKEditor instance called myeditor -->
         <script type="text/javascript">
@@ -476,7 +498,12 @@
 
             $(document).ready(function() {
 
-            $(document).on('click', '.treat_head', function () {
+                $(document).on('click', '.close_gallery_panel', function () {
+                    $(this).closest('.treat').remove();
+                });
+
+
+                $(document).on('click', '.treat_head', function () {
                 if ($(this).hasClass('active')) {
                     $(this).removeClass('active');
                     $(this).find('.fa').removeClass('fa-plus').addClass('fa-minus');
@@ -500,7 +527,7 @@
 
             var ctr1 = 0;
             $('.addMoreFaq').on('click', function () {
-                var html1 = '<div class="panel panel-default treat"><div class="panel-heading treat_head"><label>FAQ</label><i style="float: right" class="fa fa-minus fa-fw"></i></div><div class="panel-body treat_body" style="display:none"><div class="form-group"><label>Title</label><input class="form-control" name="faqs[' + ctr1 + '][title]" placeholder="Enter Title"></div><div class="form-group"><label>Description</label><textarea id="denesa_obj" rows="3" class="form-control" name="faqs[' + ctr1 + '][description]" placeholder="Enter The Description"></textarea><p class="help-block"></p></div></div></div>';
+                var html1 = '<div class="panel panel-default treat"><i class="fa fa-times-circle-o fa-fw close_gallery_panel"></i><div class="panel-heading treat_head"><label>FAQ</label><i style="float: right" class="fa fa-minus fa-fw"></i></div><div class="panel-body treat_body" style="display:none"><div class="form-group"><label>Title</label><input class="form-control" name="faqs[' + ctr1 + '][title]" placeholder="Enter Title"></div><div class="form-group"><label>Description</label><textarea id="denesa_obj" rows="3" class="form-control" name="faqs[' + ctr1 + '][description]" placeholder="Enter The Description"></textarea><p class="help-block"></p></div></div></div>';
                 ctr1++;
                 $('.addMoreFaq').before(html1);
             });

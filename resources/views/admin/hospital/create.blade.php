@@ -116,7 +116,20 @@
                             <!-- /.col-lg-6 (nested) -->
                             <div class="col-lg-6">
 
-
+                                <div class="form-group">
+                                    <label>Seo Title</label>
+                                    <input class="form-control" name="meta_title" placeholder="Enter the Seo Title" value="{{ isset($hospital->meta_title) ? $hospital->meta_title : old('meta_title') }}">
+                                    @error('meta_title')
+                                    <label class="error">{{ $message }}</label>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Seo Description</label>
+                                    <textarea name="meta_description" class="form-control" {{--id="myeditor2"--}} rows="3">{{ (old('meta_description') != null) ? old('meta_description') : (!empty($hospital) ? $hospital->meta_description : null) }}</textarea>
+                                    @error('meta_description')
+                                    <label class="error">{{ $message }}</label>
+                                    @enderror
+                                </div>
                                 <div class="form-group">
                                     <label>States</label>
                                     <select required id="state" class="form-control" name="state">

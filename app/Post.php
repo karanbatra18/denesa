@@ -20,8 +20,9 @@ class Post extends Model
         'description',
         'featured_image',
         'status',
-        'meta_title',
+
         'is_featured',
+        'meta_title',
         'meta_description',
         'published_at'
     ];

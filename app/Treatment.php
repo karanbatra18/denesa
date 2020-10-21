@@ -23,6 +23,8 @@ class Treatment extends Model
         'cost',
         'featured_image',
         'category_id',
+        'meta_title',
+        'meta_description'
     ];
 
     /**

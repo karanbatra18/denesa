@@ -62,28 +62,28 @@
                                     <input type="hidden" name="post_id" value="{{ $post->id }}">
                                     <div class="col-md-12 form-group ">
                                         <label>Comment</label>
-                                        <textarea class="form-control border" rows="5" name="comment">{{ old('comment') }}</textarea>
+                                        <textarea class="form-control border" rows="5" name="comment" required>{{ old('comment') }}</textarea>
                                         @error('comment')
                                         <label class="error">{{ $message }}</label>
                                         @enderror
                                     </div>
                                     <div class="col-md-12 form-group ">
                                         <label>Designation</label>
-                                        <input type="text" class="form-control border" name="designation" value="{{ old('designation') }}" />
+                                        <input type="text" class="form-control border" name="designation" value="{{ old('designation') }}" required/>
                                         @error('designation')
                                         <label class="error">{{ $message }}</label>
                                         @enderror
                                     </div>
                                     <div class="col-md-6 form-group ">
                                         <label>Name*</label>
-                                        <input type="text" class="form-control border" name="name" value="{{ old('name') }}"/>
+                                        <input type="text" class="form-control border" name="name" value="{{ old('name') }}" required/>
                                         @error('name')
                                         <label class="error">{{ $message }}</label>
                                         @enderror
                                     </div>
                                     <div class="col-md-6 form-group ">
                                         <label>Email*</label>
-                                        <input type="email" class="form-control border" name="email" value="{{ old('email') }}"/>
+                                        <input type="email" class="form-control border" name="email" value="{{ old('email') }}" required/>
                                         @error('email')
                                         <label class="error">{{ $message }}</label>
                                         @enderror
