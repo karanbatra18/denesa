@@ -136,6 +136,18 @@
                                         </ul>
                                         <!-- /.nav-second-level -->
                                     </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> Manage Specialities<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="{{ route('speciality.create.type',['type' => 'doctor']) }}">Add</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('speciality.index.type',['type' => 'doctor']) }}">List</a>
+                                            </li>
+                                        </ul>
+                                        <!-- /.nav-second-level -->
+                                    </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
@@ -150,6 +162,18 @@
                                     </li>
                                     <li>
                                         <a href="{{ route('hospital.trash') }}">Trash</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> Manage Specialities<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="{{ route('speciality.create.type',['type' => 'hospital']) }}">Add</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('speciality.index.type',['type' => 'hospital']) }}">List</a>
+                                            </li>
+                                        </ul>
+                                        <!-- /.nav-second-level -->
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Speciality;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Doctor;
@@ -57,9 +58,10 @@ class DoctorController extends Controller
     {
         $hospitals = Hospital::get();
         $categories = Category::where(['type'=>'doctor'])->get();
+        $doctorSpecialities = Speciality::where(['type'=>'doctor'])->get();
         $states = State::get();
         $cities = [];
-        return view('admin.doctor.create', compact('hospitals', 'categories', 'states', 'cities'));
+        return view('admin.doctor.create', compact('hospitals', 'categories', 'states', 'cities', 'doctorSpecialities'));
     }
 
     /**
@@ -123,10 +125,11 @@ class DoctorController extends Controller
     {
         $hospitals = Hospital::get();
         $categories = Category::where(['type'=>'doctor'])->get();
+        $doctorSpecialities = Speciality::where(['type'=>'doctor'])->get();
         $states = State::get();
         $state = State::where(['name' => $doctor->state])->first();
         $cities = City::where('state_id', $state->id)->get();
-        return view('admin.doctor.create', compact('doctor', 'hospitals', 'categories', 'states', 'cities'));
+        return view('admin.doctor.create', compact('doctor', 'hospitals', 'categories', 'states', 'cities', 'doctorSpecialities'));
     }
 
     /**

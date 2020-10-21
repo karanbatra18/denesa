@@ -112,14 +112,11 @@
                                 <div class="form-group">
                                     <label>Speciality</label>
                                     <select name="speciality[]" multiple class="form-control">
-                                        <option @if(in_array('Intracranial Tumor', $speciality)) selected @endif>Intracranial Tumor</option>
-                                        <option @if(in_array('Deep Brain Stimulation', $speciality)) selected @endif>Deep Brain Stimulation</option>
-                                        <option @if(in_array('Spinal', $speciality)) selected @endif>Spinal</option>
-                                        <option @if(in_array('Gamma Knife Radio', $speciality)) selected @endif>Gamma Knife Radio</option>
-                                        <option @if(in_array('Parkinson Disease', $speciality)) selected @endif>Parkinson Disease</option>
-                                        <option @if(in_array('Epilepsy', $speciality)) selected @endif>Epilepsy</option>
-                                        <option @if(in_array('Obsessive Compulsive Disorder', $speciality)) selected @endif>Obsessive Compulsive Disorder</option>
-                                        <option @if(in_array('Brachial Plexus Injuries', $speciality)) selected @endif>Brachial Plexus Injuries</option>
+                                        @if($doctorSpecialities->count())
+                                            @foreach($doctorSpecialities as $doctorSpeciality)
+                                                <option @if(in_array($doctorSpeciality->name, $speciality)) selected @endif>{{ $doctorSpeciality->name }}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                     @error('speciality')
                                         <label class="error">{{ $message }}</label>

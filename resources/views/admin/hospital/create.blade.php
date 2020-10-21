@@ -91,17 +91,11 @@
                                 <div class="form-group">
                                     <label>Speciality</label>
                                     <select name="speciality[]" multiple class="form-control">
-                                        <option @if(in_array('Multi Speciality', $speciality)) selected @endif>Multi Speciality</option>
-                                        <option @if(in_array('Obstetrics and Gynaecology', $speciality)) selected @endif>Obstetrics and Gynaecology</option>
-                                        <option @if(in_array('Neurology and Neurosurgery', $speciality)) selected @endif>Neurology and Neurosurgery</option>
-                                        <option @if(in_array('Haematology', $speciality)) selected @endif>Haematology</option>
-                                        <option @if(in_array('Cardiology', $speciality)) selected @endif>Cardiology</option>
-                                        <option @if(in_array('Surgery and Urology', $speciality)) selected @endif>Surgery and Urology</option>
-                                        <option @if(in_array('Rheumatology', $speciality)) selected @endif>Rheumatology</option>
-                                        <option @if(in_array('Gastroenterology', $speciality)) selected @endif>Gastroenterology</option>
-                                        <option @if(in_array('Oral and Maxillofacial', $speciality)) selected @endif>Oral and Maxillofacial</option>
-                                        <option @if(in_array('Psychiatry and many more', $speciality)) selected @endif>Psychiatry and many more</option>
-                                        <option @if(in_array('Organ transplants', $speciality)) selected @endif>Organ transplants</option>
+                                        @if($hospitalSpecialities->count())
+                                            @foreach($hospitalSpecialities as $hospitalSpeciality)
+                                                <option @if(in_array($hospitalSpeciality->name, $speciality)) selected @endif>{{ $hospitalSpeciality->name }}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                     @error('speciality')
                                     <label class="error">{{ $message }}</label>

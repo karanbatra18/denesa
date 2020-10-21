@@ -90,6 +90,13 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::post('category/trash-back', 'CategoryController@backToList')->name('category.trash-back');
 	Route::resource('category', 'CategoryController');
 
+    Route::get('/speciality/create/{type}', 'SpecialityController@create')->name('speciality.create.type');
+    Route::get('/speciality/index/{type}', 'SpecialityController@index')->name('speciality.index.type');
+
+    Route::get('/speciality/trash', 'SpecialityController@trash')->name('speciality.trash');
+    Route::post('speciality/trash-back', 'SpecialityController@backToList')->name('speciality.trash-back');
+    Route::resource('speciality', 'SpecialityController');
+
     Route::get('/topic/create/{type}', 'TopicController@create')->name('topic.create.type');
     Route::get('/topic/index/{type}', 'TopicController@index')->name('topic.index.type');
 
