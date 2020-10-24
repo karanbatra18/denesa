@@ -27,12 +27,16 @@ class ImageUploadController extends Controller
         $request->file('file')->move($path, $imageName);
 
         $data = ['image' => $storagePath.'/'.$imageName];
-
+        $fullPath = $storagePath.'/'.$imageName;
         Image::create($data);
+
+        return response()->json([
+            'name' => $fullPath
+        ]);
    
-        return back()
+       /* return back()
             ->with('success','You have successfully upload image.')
-            ->with('image',$imageName);
+            ->with('image',$fullPath);*/
     }
 
     function viewAll()

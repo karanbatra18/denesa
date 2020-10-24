@@ -111,7 +111,7 @@
 
                                 <div class="form-group">
                                     <label>Speciality</label>
-                                    <select name="speciality[]" multiple class="form-control">
+                                    <select name="speciality[]" multiple class="form-control speciality_class">
                                         @if($doctorSpecialities->count())
                                             @foreach($doctorSpecialities as $doctorSpeciality)
                                                 <option @if(in_array($doctorSpeciality->name, $speciality)) selected @endif>{{ $doctorSpeciality->name }}</option>
@@ -264,6 +264,8 @@
 <!-- /.row -->
 
 @push('foot')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <!-- creating a CKEditor instance called myeditor -->
     <script type="text/javascript">
         CKEDITOR.replace('myeditor');
@@ -315,6 +317,7 @@
     </div>
 
   <script>
+
       var uploadedDocumentMap = {}
 
       Dropzone.options.documentDropzone = {
@@ -333,8 +336,8 @@
 
           success: function (file, response) {
 
-              $('form').append('<input type="hidden" name="document[]" value="' + file.name + '">')
-
+              /*$('form').append('<input type="hidden" name="document[]" value="' + file.name + '">')*/
+              addImageToHidden(response.name);
               uploadedDocumentMap[file.name] = response.name
 
           },
@@ -444,6 +447,10 @@ $('#state').on('change', function(){
         }
     });
 });
+
+      $(document).ready(function() {
+          $('.speciality_class').select2();
+      });
 
       function addImageToHidden(image_path) {
 

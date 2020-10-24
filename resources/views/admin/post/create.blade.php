@@ -253,7 +253,8 @@
 
             success: function (file, response) {
 
-                $('form').append('<input type="hidden" name="document[]" value="' + file.name + '">')
+                /* $('form').append('<input type="hidden" name="document[]" value="' + file.name + '">')*/
+                addImageToHidden(response.name);
 
                 uploadedDocumentMap[file.name] = response.name
 
