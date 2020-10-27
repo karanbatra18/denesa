@@ -264,7 +264,7 @@
             <div class="px-lg-5 text-center">
 
                 <h2 class="section-title ">{{ isset($aboutMedical) ? $aboutMedical->title : '' }}</h2>
-                <p>{{ isset($aboutMedical) ? $aboutMedical->description : '' }}</p>
+                <p>{!! (isset($aboutMedical) ? $aboutMedical->description : '') !!}</p>
 
                 <a href="{{ route('about') }}" class="theme-color-alt d-inline-block font-montserrat mt-4 ">READ MORE</a>
 

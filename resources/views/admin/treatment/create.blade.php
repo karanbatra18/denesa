@@ -237,7 +237,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Description</label>
-                                                    <textarea id="denesa_obj" rows="3" class="form-control"
+                                                    <textarea id="denesa_obj" rows="3" class="form-control ck_class"
                                                               name="specifications[{{$specification->id}}][description]"
                                                               placeholder="Enter The Description">{{ (old('description') != null) ? old('description') : $specification->description }}</textarea>
                                                     <p class="help-block"></p>
@@ -521,7 +521,7 @@
 
             var ctr = 0;
             $('.addMoreSpecs').on('click', function () {
-                var html = '<div class="panel panel-default treat"><i class="fa fa-times-circle-o fa-fw close_gallery_panel"></i><div class="panel-heading treat_head"><label>Specifications</label><i style="float: right" class="fa fa-minus fa-fw"></i></div><div class="panel-body treat_body" style="display:none"><div class="form-group"><label>Title</label><input class="form-control" name="specifications[' + ctr + '][title]" placeholder="Enter Title"></div><div class="form-group"><label>Description</label><textarea id="denesa_obj" rows="3" class="form-control" name="specifications[' + ctr + '][description]" placeholder="Enter The Description"></textarea><p class="help-block"></p></div></div></div>';
+                var html = '<div class="panel panel-default treat"><i class="fa fa-times-circle-o fa-fw close_gallery_panel"></i><div class="panel-heading treat_head"><label>Specifications</label><i style="float: right" class="fa fa-minus fa-fw"></i></div><div class="panel-body treat_body" style="display:none"><div class="form-group"><label>Title</label><input class="form-control" name="specifications[' + ctr + '][title]" placeholder="Enter Title"></div><div class="form-group"><label>Description</label><textarea id="denesa_obj" rows="3" class="form-control ck_class" name="specifications[' + ctr + '][description]" placeholder="Enter The Description"></textarea><p class="help-block"></p></div></div></div>';
                 ctr++;
                 $('.addMoreSpecs').before(html);
             });
