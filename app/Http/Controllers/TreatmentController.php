@@ -235,13 +235,13 @@ class TreatmentController extends Controller
         $search = $request->search;
 
         if($search == ''){
-            $treatments = Treatment::orderby('title','asc')->limit(3)->get();
-            $doctors = Doctor::orderby('name','asc')->limit(3)->get();
-            $hospitals = Hospital::orderby('name','asc')->limit(3)->get();
+            $treatments = Treatment::orderby('title','asc')->limit->get();
+            $doctors = Doctor::orderby('name','asc')->get();
+            $hospitals = Hospital::orderby('name','asc')->get();
         }else{
-            $treatments = Treatment::orderby('title','asc')->where('title', 'like', '%' .$search . '%')->limit(3)->get();
-            $doctors = Doctor::orderby('name','asc')->where('name', 'like', '%' .$search . '%')->limit(3)->get();
-            $hospitals = Hospital::orderby('name','asc')->where('name', 'like', '%' .$search . '%')->limit(3)->get();
+            $treatments = Treatment::orderby('title','asc')->where('title', 'like', '%' .$search . '%')->get();
+            $doctors = Doctor::orderby('name','asc')->where('name', 'like', '%' .$search . '%')->get();
+            $hospitals = Hospital::orderby('name','asc')->where('name', 'like', '%' .$search . '%')->get();
         }
 
         $response = array();
