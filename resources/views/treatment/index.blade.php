@@ -33,9 +33,14 @@
                                                             <i
                                                                     class="fas fa-chevron-right"></i></a></li>
                                                 @endforeach
+
                                             @endif
 
                                         </ul>
+                                        @if($category->treatments->count() > 3)
+                                            <div class="text-center view-all border-top-0"><span class="py-3 more">[ View All ]</span><span
+                                                        class="py-3 d-inline-block less">[ View Less ]</span></div>
+                                        @endif
                                         {{--<div class="text-center view-all border-top-0"><span class="py-3 more">[ View All ]</span><span
                                                     class="py-3 d-inline-block less">[ View Less ]</span></div>--}}
                                     </div>

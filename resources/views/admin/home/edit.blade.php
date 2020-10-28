@@ -154,8 +154,8 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Link</label>
-                                                    <input class="form-control" name="doctor[{{$doctor->id}}][name]"
-                                                           placeholder="Enter Name"
+                                                    <input class="form-control" name="doctor[{{$doctor->id}}][link]"
+                                                           placeholder="Enter Link"
                                                            value="{{ isset($doctor->link) ? $doctor->link : old('link') }}">
                                                     @error('link')
                                                     <label class="error">{{ $message }}</label>
