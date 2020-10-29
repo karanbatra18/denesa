@@ -98,6 +98,9 @@
             <div class="owl-theme owl-carousel top-doctors ">
                 @if(!empty($doctors))
                     @foreach($doctors as $doctor)
+                        @if(!empty($doctor->link))
+                        <a href="{{ $doctor->link }}">
+                            @endif
                         <div class="item text-center">
                             <img src="{{ asset($doctor->featured_image) }}" alt=""/>
                             <div class="details-box bg-white px-3 py-4 position-relative">
@@ -106,6 +109,9 @@
                                 <h6 class="fs-13">{{ $doctor->designation }}</h6>
                             </div>
                         </div>
+                            @if(!empty($doctor->link))
+                        </a>
+                        @endif
                     @endforeach
                 @endif
 

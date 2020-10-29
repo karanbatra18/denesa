@@ -23,6 +23,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function thanks() {
+        return view('thanks.index');
+    }
+
     public function index()
     {
         $overallFigures = OverallFigure::get();
@@ -44,19 +48,19 @@ class HomeController extends Controller
 
     public function consultationForm(Request $request)
     {
-        $validateData = $request->validate([
+        /*$validateData = $request->validate([
             'name' => 'required|min:3|max:255',
             'phone' => 'required|min:10',
             'email' => 'required|email',
             'country' => 'required',
             'treatment_details' => 'required|min:3',
-        ]);
+        ]);*/
 
         $data = $request->all();
         //dd($data);
         \Mail::to('karanbatra@yopmail.com')->send(new \App\Mail\ConsultationMail($data));
 
-        return back()->with('success','Request successfully sent!');
+        return redirect()->route('thank-you')/*->with('name',$data['name'])*/;
 
 
     }

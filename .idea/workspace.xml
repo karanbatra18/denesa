@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="e4e53af8-9d67-4993-83cf-2e424ac7ecbe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_partials/main/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_partials/main/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/home/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/treatment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatment/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doctor/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctor/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/hospital/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hospital/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +73,7 @@
     <session id="-385583194">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="33" />
+          <entry key="project.closed" value="35" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
@@ -78,52 +87,53 @@
           <entry key="project.open.time.4" value="5" />
           <entry key="project.open.time.42" value="2" />
           <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.48" value="2" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.50" value="2" />
           <entry key="project.open.time.53" value="1" />
-          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.78" value="1" />
           <entry key="project.open.time.89" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="36" />
+          <entry key="project.opened" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="90" />
+          <entry key="css" value="97" />
           <entry key="html" value="1" />
-          <entry key="js" value="3" />
-          <entry key="php" value="19443" />
+          <entry key="js" value="23" />
+          <entry key="php" value="19782" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="10662" />
-          <entry key="CSS" value="90" />
+          <entry key="Blade" value="10939" />
+          <entry key="CSS" value="97" />
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="8781" />
+          <entry key="JavaScript" value="23" />
+          <entry key="PHP" value="8843" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="2" />
+          <entry key="css" value="3" />
           <entry key="env" value="2" />
           <entry key="htaccess" value="1" />
           <entry key="html" value="1" />
-          <entry key="js" value="2" />
-          <entry key="php" value="527" />
+          <entry key="js" value="3" />
+          <entry key="php" value="535" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="194" />
-          <entry key="CSS" value="2" />
+          <entry key="Blade" value="199" />
+          <entry key="CSS" value="3" />
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="2" />
-          <entry key="PHP" value="333" />
+          <entry key="JavaScript" value="3" />
+          <entry key="PHP" value="336" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="htaccess" value="1" />
         </counts>
@@ -133,79 +143,94 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AboutController.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContactUsController.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DoctorController.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/home/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="58" column="54" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
+            <state relative-caret-position="263">
+              <caret line="341" column="87" selection-start-line="341" selection-start-column="87" selection-end-line="341" selection-end-column="87" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/KnowledgeCenterController.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="44" column="74" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="74" />
+            <state relative-caret-position="42">
+              <caret line="19" column="66" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="51" column="19" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="19" />
+            <state relative-caret-position="271">
+              <caret line="56" column="13" selection-start-line="50" selection-start-column="8" selection-end-line="56" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/hospital/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="97" column="190" selection-start-line="97" selection-start-column="190" selection-end-line="97" selection-end-column="190" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/thanks/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="49" column="18" selection-start-line="42" selection-start-column="4" selection-end-line="49" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/treatment/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/doctor/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+            <state relative-caret-position="246">
+              <caret line="86" column="189" selection-start-line="86" selection-start-column="189" selection-end-line="86" selection-end-column="189" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/_partials/main/header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="77" column="29" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="29" />
+            <state relative-caret-position="255">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/home/edit.blade.php">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="157" column="79" selection-start-line="157" selection-start-column="79" selection-end-line="157" selection-end-column="79" />
+            <state relative-caret-position="380">
+              <caret line="191" column="32" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2414">
-              <caret line="142" column="68" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="68" />
+            <state relative-caret-position="459">
+              <caret line="35" column="142" selection-start-line="35" selection-start-column="142" selection-end-line="35" selection-end-column="142" />
+              <folding>
+                <element signature="e#230#237#1#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="1226" column="1" selection-start-line="1226" selection-start-column="1" selection-end-line="1226" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -214,15 +239,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>list-unstyled mb-0</find>
-      <find>doctor/trash</find>
-      <find>very medical condition is unique. The customer support team of Denesa Health after analysing your medical reports, forward it to a few of the top hospitals in India. Medical specialists at the hospital review your diagnosis report and provide with a personalised quote</find>
-      <find>myModal1</find>
-      <find>Infrastructure</find>
-      <find>paginate</find>
-      <find>Seo Title</find>
-      <find>state</find>
-      <find>faq</find>
       <find>Manage Testimonia</find>
       <find>category</find>
       <find>speci</find>
@@ -244,11 +260,21 @@
       <find>videoTestimonial</find>
       <find>getSearchData</find>
       <find>Top Doctors in India</find>
+      <find>$categories</find>
+      <find>surger</find>
+      <find>feature</find>
+      <find>feature_type_</find>
+      <find>.modal.popup-form.show</find>
+      <find>popup-form</find>
+      <find>FREE Consultation</find>
+      <find>consultation_form</find>
+      <find>happy-patients</find>
     </findStrings>
     <dirStrings>
       <dir>D:\xampp\htdocs\denisa23\app</dir>
       <dir>D:\xampp\htdocs\denisa23</dir>
       <dir>D:\xampp\htdocs\denisa23\resources</dir>
+      <dir>D:\xampp\htdocs\denisa23\resources\views</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -257,10 +283,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/admin/csv_upload/hospitals.blade.php" />
-        <option value="$PROJECT_DIR$/app/Helpers/Global.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/csv_upload/doctors.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_08_19_181531_create_comments_table.php" />
         <option value="$PROJECT_DIR$/app/Comment.php" />
         <option value="$PROJECT_DIR$/app/Mail/ConsultationMail.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/consultation.blade.php" />
@@ -270,8 +292,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/csv_upload/treamtments.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CsvUploadController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/resources/views/_partials/main/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/post/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/post/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/doctor/index.blade.php" />
@@ -280,10 +300,8 @@
         <option value="$PROJECT_DIR$/resources/views/admin/post/comments.blade.php" />
         <option value="$PROJECT_DIR$/public/admin-theme/startmin-master/js/morris-data.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/index.blade.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/script.js" />
         <option value="$PROJECT_DIR$/resources/views/hospital/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/doctor/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HospitalController.php" />
         <option value="$PROJECT_DIR$/resources/views/post/show.blade.php" />
@@ -291,7 +309,6 @@
         <option value="$PROJECT_DIR$/app/Doctor.php" />
         <option value="$PROJECT_DIR$/app/Hospital.php" />
         <option value="$PROJECT_DIR$/app/Treatment.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/DoctorController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/HospitalController.php" />
@@ -304,10 +321,19 @@
         <option value="$PROJECT_DIR$/resources/views/admin/hospital/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/doctor/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/treatment/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/home/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/treatment/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php" />
+        <option value="$PROJECT_DIR$/resources/views/home/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/home/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/_partials/main/header.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/public/assets/js/script.js" />
+        <option value="$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/thanks/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/hospital/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/doctor/index.blade.php" />
       </list>
     </option>
   </component>
@@ -449,6 +475,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -474,34 +501,10 @@
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="denisa23" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="denisa23" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="denisa23" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="treatment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="denisa23" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -574,12 +577,14 @@
       <workItem from="1603714007480" duration="716000" />
       <workItem from="1603816717074" duration="2918000" />
       <workItem from="1603856832579" duration="338000" />
-      <workItem from="1603906359946" duration="1520000" />
+      <workItem from="1603906359946" duration="2897000" />
+      <workItem from="1603942484403" duration="603000" />
+      <workItem from="1603981545512" duration="4787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="333624000" />
+    <option name="totallyTimeSpent" value="340391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -587,7 +592,7 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.36157337" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.37291983" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
@@ -636,41 +641,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CsvUploadController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
-          <caret line="157" column="59" selection-start-line="157" selection-start-column="59" selection-end-line="157" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/_partials/main/head.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="88" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/_partials/main/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="118" column="25" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/post/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/post/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="61" column="130" selection-start-line="61" selection-start-column="130" selection-end-line="61" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/post/comments.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -692,13 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1802">
           <caret line="106" column="2" selection-start-line="106" selection-start-column="2" selection-end-line="106" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/hospital/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="91" selection-start-line="85" selection-start-column="53" selection-end-line="85" selection-end-column="91" />
         </state>
       </provider>
     </entry>
@@ -744,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="115" selection-start-line="76" selection-start-column="107" selection-end-line="76" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HospitalController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -762,13 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="33" column="33" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3230">
-          <caret line="190" column="12" selection-start-line="185" selection-start-column="5" selection-end-line="190" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -912,16 +861,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AboutController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/ClientLoginController.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContactUsController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -935,38 +878,10 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/KnowledgeCenterController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="74" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="142" column="68" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="1037">
           <caret line="77" column="29" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/home/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="157" column="79" selection-start-line="157" selection-start-column="79" selection-end-line="157" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="51" column="19" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -974,6 +889,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TreatmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="165" column="36" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/home/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="341" column="87" selection-start-line="341" selection-start-column="87" selection-end-line="341" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="1226" column="1" selection-start-line="1226" selection-start-column="1" selection-end-line="1226" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="191" column="32" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/_partials/main/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="35" column="142" selection-start-line="35" selection-start-column="142" selection-end-line="35" selection-end-column="142" />
+          <folding>
+            <element signature="e#230#237#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="19" column="66" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/thanks/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="49" column="18" selection-start-line="42" selection-start-column="4" selection-end-line="49" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="56" column="13" selection-start-line="50" selection-start-column="8" selection-end-line="56" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/hospital/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="97" column="190" selection-start-line="97" selection-start-column="190" selection-end-line="97" selection-end-column="190" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/doctor/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="86" column="189" selection-start-line="86" selection-start-column="189" selection-end-line="86" selection-end-column="189" />
         </state>
       </provider>
     </entry>

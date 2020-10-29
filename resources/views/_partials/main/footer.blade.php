@@ -1,4 +1,4 @@
-{{--<div id="myModal1" class="modal popup-form fade ">
+<div id="myModal1" class="modal popup-form fade d-none">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ">
 
@@ -11,35 +11,36 @@
                         <p>Every medical condition is unique. The customer support team of Denesa Health after analysing your medical reports, forward it to a few of the top hospitals in India. Medical specialists at the hospital review your diagnosis report and provide with a personalised quote.
                         </p><p>
                             Share your medical concern with us now, to get an instant estimate for your approximate expenses for your treatment in India.</p>
-                        <img src="assets/images/brand-logos-DH2.jpg" alt="" />
+                        <img src="{{ asset('assets/images/brand-logos-DH2.jpg') }}" alt="" />
 
                     </div>
                     <div class="col-md-9 py-4">
                         <h2>FREE CONSULTATION</h2>
                         ( For Best Treatment In India )
-                        <form class=" mt-4 pr-3">
+                        <form class=" mt-4 pr-3" action="{{ route('consultation_form') }}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" placeholder="Name">
+                                    <input type="text" class="form-control" placeholder="Name" name="name" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" placeholder="Email Address">
+                                    <input type="email" class="form-control" placeholder="Email Address" name="email" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" placeholder="Phone Number">
+                                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" placeholder="Country">
+                                    <input type="text" class="form-control" placeholder="Country" name="country" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea type="text" class="form-control" rows="5" placeholder="Message"></textarea>
+                                    <textarea type="text" required class="form-control" rows="5" placeholder="Message" name="treatment_details"></textarea>
                                     <button type="submit" class="themebtn mt-4">Connect Now</button>
                                 </div>
                             </div>
                         </form>
                         <p>By seeking our services, you abide by the Terms & Conditions and Privacy Policy of the company. Your use and access to any of the facilities offered on the website will subject to the same. </p>
                         <div class="text-center mt-5">
-                            <img src="assets/images/logo.png" alt="" />
+                            <img src="{{ asset('assets/images/logo.png') }}" alt="" />
                         </div>
                     </div>
                 </div>
@@ -48,7 +49,7 @@
             </div>
         </div>
     </div>
-</div>--}}
+</div>
 
 <footer class="site-footer position-relative overlay"
         style="background:url({{ asset('assets/images/footer-bg.jpg') }}) no-repeat center center / cover;    ">

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 Route::get('/about', 'AboutController@index')->name('about');
+Route::get('/thank-you', 'HomeController@thanks')->name('thank-you');
 Route::post('/consultation_form', 'HomeController@consultationForm')->name('consultation_form');
 //Route::get('/testimonial', 'TestimonialController@index')->name('testimonial');
 Route::get('/knowledge-center/category/{category}', 'KnowledgeCenterController@indexCategory')->name('knowledge-center.category');

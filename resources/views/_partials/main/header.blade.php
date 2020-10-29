@@ -15,13 +15,14 @@
                     <a class="nav-link" href="{{ route('doctor.index-front') }}">Doctors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('treatment.indexFront') }}">costs</a>
+                    <a class="nav-link" href="{{ route('treatment.indexFront') }}">Costs</a>
                 </li>
                 <li class="nav-item menu-item-has-children">
-                    <a class="nav-link" href="{{ route('knowledge-center') }}">knowledge center</a>
+                    <a class="nav-link" href="{{ route('knowledge-center') }}">Resources</a>
                     <ul class="dropdown-menu">
-                        <li><a class="nav-link" href="{{ route('testimonial.index-front') }}">testimonial</a></li>
                         <li><a class="nav-link" href="{{ route('blog.index-front') }}">blog</a></li>
+                        <li><a class="nav-link" href="{{ route('testimonial.index-front') }}">testimonial</a></li>
+
 
                     </ul>
                 </li>

@@ -92,10 +92,10 @@
                     <div class="  col-xl-8  mb-4 mb-xl-0">
                         <div class="row">
                             <div class="col-md-4 order-sm-2 mb-2 mb-lg-0">
-                                <a href="#" class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2">FREE Consultation</a>
+                                <a href="javascript:;" class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2 consulation_class">FREE Consultation</a>
                             </div>
                             <div class="col-md-8 order-sm-1 ">
-                                <h4 class="fs-20 muli-font fw-600">{{ $hospital->name }}, {{ $hospital->city }}</h4>
+                                <h4 class="fs-20 muli-font fw-600"><a href="{{ route('hospital.show-front', ['slug' => $hospital->slug]) }}" >{{ $hospital->name }}, {{ $hospital->city }}</a></h4>
                             </div>
 
                         </div>
@@ -118,7 +118,7 @@
 
 
 
-            <div class="col-lg-12 happy-patients mt-5">
+            <div class="col-lg-12 mt-5">
 
                 <ul class="pagination justify-content-center">
                     {!! $hospitals->links() !!}

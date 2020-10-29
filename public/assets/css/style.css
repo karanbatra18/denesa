@@ -1220,6 +1220,7 @@ a.whatsapp ,#scroll{
 }
 .modal.popup-form.show {
     opacity: 1;
+    display: block;
 }
 .popup-content{
 	    background-image: linear-gradient(to left,#0695c9, #212564);

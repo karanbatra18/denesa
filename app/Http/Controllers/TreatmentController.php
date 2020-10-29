@@ -79,8 +79,8 @@ class TreatmentController extends Controller
      */
     public function create()
     {
-    	$hospitals = Hospital::get();
-    	$doctors = Doctor::get();
+        $hospitals = Hospital::get();
+        $doctors = Doctor::get();
         $categories = Category::where(['type' => 'treatment'])->get();
 
         return view('admin.treatment.create', compact('hospitals', 'doctors', 'categories'));
@@ -89,7 +89,7 @@ class TreatmentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -98,30 +98,30 @@ class TreatmentController extends Controller
             'title' => 'required|min:3|max:150',
             'introduction' => 'required',
             //'specialization' => 'required',
-          //  'specialization' => 'required',
+            //  'specialization' => 'required',
             //'slug' => 'required|unique:doctors',
         ]);
 
         $data = $request->except('hospital_id', 'doctor_id', 'specifications', 'faqs');
         $treatment = Treatment::create($data);
-        if(isset($request->specifications)) {
-            foreach($request->specifications as $specs) {
+        if (isset($request->specifications)) {
+            foreach ($request->specifications as $specs) {
                 $treatment->specifications()->create($specs);
             }
         }
 
-        if(isset($request->faqs)) {
-            foreach($request->faqs as $faq) {
+        if (isset($request->faqs)) {
+            foreach ($request->faqs as $faq) {
                 $treatment->faqs()->create($faq);
             }
         }
 
-        if(isset($request->hospital_id)) {
+        if (isset($request->hospital_id)) {
             $treatment->hospitals()->attach($request->hospital_id);
         }
 
-        if(isset($request->doctor_id)) {
-                $treatment->doctors()->attach($request->doctor_id);
+        if (isset($request->doctor_id)) {
+            $treatment->doctors()->attach($request->doctor_id);
         }
 
         return redirect()->route('treatment.index');
@@ -151,21 +151,21 @@ class TreatmentController extends Controller
         $treatmentDoctors = $treatment->doctors()->get()->pluck('id')->toArray();
         $treatmentHospitals = $treatment->hospitals()->get()->pluck('id')->toArray();
 
-        return view('admin.treatment.create', compact('treatment', 'hospitals', 'doctors', 'faqs', 'specifications', 'categories','treatmentDoctors','treatmentHospitals'));
+        return view('admin.treatment.create', compact('treatment', 'hospitals', 'doctors', 'faqs', 'specifications', 'categories', 'treatmentDoctors', 'treatmentHospitals'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $validateData = $request->validate([
             'title' => 'required|min:3|max:150',
-          //  'slug' => 'required|unique:treatments',
+            //  'slug' => 'required|unique:treatments',
         ]);
 
         $data = $request->except('hospital_id', 'doctor_id', 'specifications', 'faqs');
@@ -174,24 +174,24 @@ class TreatmentController extends Controller
         $treatment->update($data);
 
         $treatment->specifications()->delete();
-        if(isset($request->specifications)) {
-            foreach($request->specifications as $specs) {
+        if (isset($request->specifications)) {
+            foreach ($request->specifications as $specs) {
                 $treatment->specifications()->create($specs);
             }
         }
 
         $treatment->faqs()->delete();
-        if(isset($request->faqs)) {
-            foreach($request->faqs as $faq) {
+        if (isset($request->faqs)) {
+            foreach ($request->faqs as $faq) {
                 $treatment->faqs()->create($faq);
             }
         }
 
-        if(isset($request->hospital_id)) {
+        if (isset($request->hospital_id)) {
             $treatment->hospitals()->sync($request->hospital_id);
         }
 
-        if(isset($request->doctor_id)) {
+        if (isset($request->doctor_id)) {
             $treatment->doctors()->sync($request->doctor_id);
         }
 
@@ -201,7 +201,7 @@ class TreatmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Treatment $treatment)
@@ -214,17 +214,17 @@ class TreatmentController extends Controller
     {
         $search = $request->search;
 
-        if($search == ''){
-            $treatments = Treatment::orderby('title','asc')->limit(5)->get();
-        }else{
-            $treatments = Treatment::orderby('title','asc')->where('title', 'like', '%' .$search . '%')->limit(5)->get();
+        if ($search == '') {
+            $treatments = Treatment::orderby('title', 'asc')->limit(5)->get();
+        } else {
+            $treatments = Treatment::orderby('title', 'asc')->where('title', 'like', '%' . $search . '%')->limit(5)->get();
         }
 
         $response = array();
-        foreach($treatments as $treatment){
-          //  dd($treatment);
+        foreach ($treatments as $treatment) {
+            //  dd($treatment);
             $slug = route('treatment.showFront', ['slug' => $treatment->slug]);
-            $response[] = array("value"=> $slug, "label"=>$treatment->title);
+            $response[] = array("value" => $slug, "label" => $treatment->title);
         }
 
         return response()->json($response);
@@ -234,30 +234,30 @@ class TreatmentController extends Controller
     {
         $search = $request->search;
 
-        if($search == ''){
-            $treatments = Treatment::orderby('title','asc')->limit->get();
-            $doctors = Doctor::orderby('name','asc')->get();
-            $hospitals = Hospital::orderby('name','asc')->get();
-        }else{
-            $treatments = Treatment::orderby('title','asc')->where('title', 'like', '%' .$search . '%')->get();
-            $doctors = Doctor::orderby('name','asc')->where('name', 'like', '%' .$search . '%')->get();
-            $hospitals = Hospital::orderby('name','asc')->where('name', 'like', '%' .$search . '%')->get();
+        if ($search == '') {
+            $treatments = Treatment::orderby('title', 'asc')->limit->get();
+            $doctors = Doctor::orderby('name', 'asc')->get();
+            $hospitals = Hospital::orderby('name', 'asc')->get();
+        } else {
+            $treatments = Treatment::orderby('title', 'asc')->where('title', 'like', '%' . $search . '%')->get();
+            $doctors = Doctor::orderby('name', 'asc')->where('name', 'like', '%' . $search . '%')->get();
+            $hospitals = Hospital::orderby('name', 'asc')->where('name', 'like', '%' . $search . '%')->get();
         }
 
         $response = array();
-        foreach($treatments as $treatment){
+        foreach ($treatments as $treatment) {
             $slug = route('treatment.showFront', ['slug' => $treatment->slug]);
-            $response[] = array("url"=> $slug, "label"=>$treatment->title,  "value"=>$treatment->title, "category" => 'Treatments');
+            $response[] = array("url" => $slug, "label" => $treatment->title, "value" => $treatment->title, "category" => 'Treatments');
         }
 
-        foreach($doctors as $doctor){
+        foreach ($doctors as $doctor) {
             $slug1 = route('doctor.show-front', ['slug' => $doctor->slug]);
-            $response[] = array("url"=> $slug1, "label"=>$doctor->name, "value"=>$doctor->name, "category" => 'Doctors');
+            $response[] = array("url" => $slug1, "label" => $doctor->name, "value" => $doctor->name, "category" => 'Doctors');
         }
 
-        foreach($hospitals as $hospital){
+        foreach ($hospitals as $hospital) {
             $slug2 = route('hospital.show-front', ['slug' => $hospital->slug]);
-            $response[] = array("url"=> $slug2, "label"=>$hospital->name, "value"=>$hospital->name, "category" => 'Hospitals');
+            $response[] = array("url" => $slug2, "label" => $hospital->name, "value" => $hospital->name, "category" => 'Hospitals');
         }
 
         return response()->json($response);

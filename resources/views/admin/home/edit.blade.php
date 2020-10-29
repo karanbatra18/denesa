@@ -332,14 +332,14 @@
                                                     <label>Featured Image </label><br>
                                                     <button type="button" class="image-upload btn btn-info"
                                                             data-toggle="modal" data-target="#myModal"
-                                                            data-id="feature_type_{{$treatment->id}}">Upload / Replace
+                                                            data-id="feature_type_treat_{{$treatment->id}}">Upload / Replace
                                                         Image
                                                     </button>
-                                                    <input id="hidden-image-feature_type_{{$treatment->id}}"
+                                                    <input id="hidden-image-feature_type_treat_{{$treatment->id}}"
                                                            type="hidden"
                                                            name="treatment[{{$treatment->id}}][featured_image]"
                                                            value="{{ $treatment->featured_image ?? null }}">
-                                                    <div id="hidden-feature_type_{{$treatment->id}}"
+                                                    <div id="hidden-feature_type_treat_{{$treatment->id}}"
                                                          style="padding:25px">
                                                         @if(!empty($treatment->featured_image))
                                                             <img class="img-thumbnail" style="width:150px"
