@@ -37,12 +37,14 @@ class HospitalController extends Controller
 
         if($specialityQuery) {
             $hospitals = Hospital::where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $hospitalIds)->paginate(10);
+            $topHospitals = Hospital::where('is_featured',1)->where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $hospitalIds)->paginate(10);
         } else {
             $hospitals = Hospital::where($cityCondition)->whereIn('id', $hospitalIds)->paginate(10);
+            $topHospitals = Hospital::where('is_featured',1)->where($cityCondition)->whereIn('id', $hospitalIds)->paginate(10);
         }
 
 
-        return view('hospital.index', compact('hospitals','cities', 'treatments', 'specialityQuery', 'cityQuery', 'treatmentQuery'));
+        return view('hospital.index', compact('hospitals','cities', 'treatments', 'specialityQuery', 'cityQuery', 'treatmentQuery', 'topHospitals'));
     }
 
 

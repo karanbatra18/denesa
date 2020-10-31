@@ -71,11 +71,11 @@
 
     <!-- Hospital Listing Start -->
 
-    <section class="py-5">
+    <section class="top_hospitals py-5">
         <div class="container py-3">
-            <h2 class="section-title text-left ">Top 10 Hospitals in India</h2>
-@if($hospitals->count())
-    @foreach($hospitals as $hospital)
+            <h2 class="section-title text-left ">Top 10 Hospitals in India <a style="float:right" href="javascript:;" class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2 show_all">Show All Hospitals</a></h2>
+@if($topHospitals->count())
+    @foreach($topHospitals as $hospital)
             <div class="hospital-listing p-3 p-lg-5 shadow mb-5">
                 <div class="row">
 
@@ -100,7 +100,7 @@
 
                         </div>
 
-                        <p>{!! $hospital->description !!}</p><a href="{{ route('hospital.show-front', ['slug' => $hospital->slug]) }}" class="link-color ml-1 d-inline-block">[Read more]</a>
+                        <p>{!! \Illuminate\Support\Str::limit($hospital->description,250) !!}</p><a href="{{ route('hospital.show-front', ['slug' => $hospital->slug]) }}" class="link-color ml-1 d-inline-block">[Read more]</a>
                         <ul class="list-unstyled mt-4 mb-0 ">
                             <li class="position-relative mb-2 pl-4"><span class="d-inline-block position-absolute l-0 t-0"><img src="assets/images/locations.png" alt="" /></span><b>Locacton </b>:  {{ $hospital->city }}, India</li>
                             <li class="position-relative mb-2 pl-4"><span class="d-inline-block position-absolute l-0 t-0"><img src="assets/images/establised.png" alt="" /></span><b>Established In </b>:  {{ $hospital->established }}</li>
@@ -110,6 +110,50 @@
 
                 </div>
             </div>
+                @endforeach
+            @endif
+        </div>
+    </section>
+
+    <section class="all_hospitals py-5" style="display: none">
+        <div class="container py-3">
+            <h2 class="section-title text-left ">All Hospitals in India <a style="float:right" href="javascript:;" class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2 show_top">Top 10 Hospitals</a></h2>
+            @if($hospitals->count())
+                @foreach($hospitals as $hospital)
+                    <div class="hospital-listing p-3 p-lg-5 shadow mb-5">
+                        <div class="row">
+
+                            <div class="  col-xl-4  mb-4 mb-xl-0">
+
+                                <div class="feature-hospitals border bg-white mb-0 d-flex align-items-center justify-content-center">
+                                    @if(!empty($hospital->featured_image))
+                                        <img class="dr" src="{{ asset($hospital->featured_image) }}" alt="">
+                                    @endif
+                                </div>
+
+                            </div>
+
+                            <div class="  col-xl-8  mb-4 mb-xl-0">
+                                <div class="row">
+                                    <div class="col-md-4 order-sm-2 mb-2 mb-lg-0">
+                                        <a href="javascript:;" class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2 consulation_class">FREE Consultation</a>
+                                    </div>
+                                    <div class="col-md-8 order-sm-1 ">
+                                        <h4 class="fs-20 muli-font fw-600"><a href="{{ route('hospital.show-front', ['slug' => $hospital->slug]) }}" >{{ $hospital->name }}, {{ $hospital->city }}</a></h4>
+                                    </div>
+
+                                </div>
+
+                                <p>{!! \Illuminate\Support\Str::limit($hospital->description,250) !!}</p><a href="{{ route('hospital.show-front', ['slug' => $hospital->slug]) }}" class="link-color ml-1 d-inline-block">[Read more]</a>
+                                <ul class="list-unstyled mt-4 mb-0 ">
+                                    <li class="position-relative mb-2 pl-4"><span class="d-inline-block position-absolute l-0 t-0"><img src="assets/images/locations.png" alt="" /></span><b>Locacton </b>:  {{ $hospital->city }}, India</li>
+                                    <li class="position-relative mb-2 pl-4"><span class="d-inline-block position-absolute l-0 t-0"><img src="assets/images/establised.png" alt="" /></span><b>Established In </b>:  {{ $hospital->established }}</li>
+                                    <li class="position-relative pl-4"><span class="d-inline-block position-absolute l-0 t-0"><img src="assets/images/speciality.png" alt="" /></span><b>Speciality </b>:  {{ $hospital->speciality }} </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
                 @endforeach
             @endif
 
@@ -153,6 +197,17 @@
 @section('script')
     <script>
         $(document).ready(function(){
+
+            $('.show_top').on('click', function() {
+                $('.all_hospitals').hide();
+                $('.top_hospitals').show();
+            });
+            $('.show_all').on('click', function() {
+                $('.top_hospitals').hide();
+                $('.all_hospitals').show();
+
+            });
+
            $('.common_search').on('change', function(){
                var treatment = $('select[name="treatment"]').val();
                var speciality = $('select[name="speciality"]').val();

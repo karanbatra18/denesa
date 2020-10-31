@@ -40,8 +40,14 @@ class HomeController extends Controller
         $aboutMedical = AboutMedical::first();
         $introduction = Introduction::first();
         $featuredNews = KnowledgeCenter::where(['is_featured' => 1])->first();
-        $videoTestimonial = Testimonial::where(['is_featured' => 1])->where('video_url','!=',null)->first();
-        $featuredTestimonials = Testimonial::where(['is_featured' => 1])->where('id','!=', $videoTestimonial->id)->limit(5)->get();
+        $videoTestimonial = Testimonial::where('video_url','!=',null)->first();
+       // dd($videoTestimonial);
+        if(!empty($videoTestimonial)) {
+            $featuredTestimonials = Testimonial::where(['is_featured' => 1])->where('id','!=', $videoTestimonial->id)->limit(5)->get();
+        } else {
+            $featuredTestimonials = Testimonial::where(['is_featured' => 1])->limit(5)->get();
+        }
+
 
         return view('home.index',compact('treatments', 'hospitals', 'doctors', 'departmentCosts', 'estimationCost','overallFigures','aboutMedical','introduction', 'countryFlags', 'denesaServices', 'featuredNews', 'videoTestimonial', 'featuredTestimonials'));
     }

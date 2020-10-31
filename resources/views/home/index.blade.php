@@ -41,10 +41,10 @@
                 @if(!empty($treatments))
                     @foreach($treatments as $treatment)
                         <div class=" col-md-6 col-lg-4 mb-4">
-                            <img src="{{ asset($treatment->featured_image) }}" alt=""/>
+                            @if(!empty($treatment->link)) <a href="{{ $treatment->link }}"> @endif <img src="{{ asset($treatment->featured_image) }}" alt=""/> @if(!empty($treatment->link)) </a> @endif
                             <div class="text-box position-relative theme-bg pt-5 px-4 pb-4">
-                                <span class="d-flex align-items-center justify-content-center shadow position-absolute rounded-circle bg-white"><img
-                                            src="{{ asset($treatment->icon_image) }}" alt=""/></span>
+                                <span class="d-flex align-items-center justify-content-center shadow position-absolute rounded-circle bg-white"> <img
+                                                src="{{ asset($treatment->icon_image) }}" alt=""/> </span>
                                 <h4 class="fw-600 mt-2"><a href="{{ $treatment->link }}">{{ $treatment->title }}</a>
                                 </h4>
                                 <p>{{ $treatment->description }}</p>
@@ -136,17 +136,19 @@
 
                 <div class="row py-4">
                     <div class=" col-md-5 py-5 align-self-center">
-                        <img class="mb-4" src="assets/images/medanta.png" alt=""/>
-                        <p>{!! $videoTestimonial->short_description !!}</p>
-                        <h6 class="fs-15 fw-700 open-sans mt-4">{{ $videoTestimonial->title }}</h6>
-                        <h6 class="open-sans fs-14 ">Director: Neuro & Spine Surgery</h6>
+                        <img class="mb-4" src="{{ asset('assets/images/medanta.png') }}" alt=""/>
+                        <p>{!! !empty($videoTestimonial) ? $videoTestimonial->short_description : '' !!}</p>
+                        <h6 class="fs-15 fw-700 open-sans mt-4">{{ !empty($videoTestimonial) ? $videoTestimonial->title : '' }}</h6>
+                        <h6 class="open-sans fs-14 "> {{ $videoTestimonial->place }} {{--Director: Neuro & Spine Surgery--}}</h6>
                     </div>
                     <div class="col-md-7 mb-4 mb-lg-0 text-lg-right">
 
                         <div class="position-relative">
                             <div class="vid-play  position-absolute r-0 t-0 " data-toggle="modal"
                                  data-target="#exampleModalCenter">
+                                @if(!empty($videoTestimonial))
                                 <img src="{{ asset($videoTestimonial->image) }}" alt=""/>
+                                @endif
                                 <div class="video-icon position-absolute d-flex w-100 h-100 align-items-center t-0 justify-content-center">
                                     <img src="{{ asset('assets/images/play.png') }}" alt=""/>
                                 </div>
@@ -174,7 +176,7 @@
                         @endif
                     </div>
                     <div class="text-center mt-4 ">
-                        <a href="#" class="themebtn mx-2">Free consultation</a>
+                        <a href="javascript:;" class="themebtn mx-2 consulation_class">Free consultation</a>
                         <a href="{{ route('testimonial.index-front') }}" class="themebtn alt-btn mx-2">view all
                             testimonials</a>
                     </div>
@@ -253,7 +255,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <a href="#" class="themebtn">Get a free quote</a>
+                        <a href="#" class="themebtn consulation_class">Get a free quote</a>
                     </div>
                 </div>
             </div>
@@ -265,17 +267,19 @@
 
     <!-- About Us Start -->
 
-    <section class=" py-5 theme-bg">
+    <section class=" py-5 theme-bg outer_showless">
         <div class="container py-3 ">
-            <div class="px-lg-5 text-center">
+            <div class="px-lg-5 text-center hidden_extra">
 
                 <h2 class="section-title ">{{ isset($aboutMedical) ? $aboutMedical->title : '' }}</h2>
                 <p>{!! (isset($aboutMedical) ? $aboutMedical->description : '') !!}</p>
 
-                <a href="{{ route('about') }}" class="theme-color-alt d-inline-block font-montserrat mt-4 ">READ MORE</a>
-
+                {{--<a href="{{ route('about') }}" class="theme-color-alt d-inline-block font-montserrat mt-4 ">READ MORE</a>--}}
 
             </div>
+            <a href="javascript:;" class="theme-color-altered font-montserrat mt-4 read_more_medical">[Read more]</a>
+            <a style="display:none" href="javascript:;" class="theme-color-altered font-montserrat mt-4 read_less_medical">[Read less]</a>
+
         </div>
     </section>
     <!-- About Us End -->
@@ -315,7 +319,7 @@
         </div>
     </section>
 
-
+@if(!empty($videoTestimonial))
 <div class="modal video-flex-modal  fade" id="exampleModalCenter" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -329,19 +333,28 @@
 
                     <iframe class="embed-responsive-item" id="vidpop" src="{{ $videoTestimonial->video_url }}"
                             frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          {{--  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"--}}
                             allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
 </div>
+    @endif
 @endsection
 @section('script')
 
     <script>
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         $(document).ready(function () {
+
+        $(document).on('click', '.read_more_medical', function () {
+                $('.outer_showless').addClass('show_comp');
+        });
+
+            $(document).on('click', '.read_less_medical', function () {
+                $('.outer_showless').removeClass('show_comp');
+            });
 
             $("#search").autocomplete({
                 source: function (request, response) {

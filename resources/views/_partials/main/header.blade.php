@@ -18,9 +18,10 @@
                     <a class="nav-link" href="{{ route('treatment.indexFront') }}">Costs</a>
                 </li>
                 <li class="nav-item menu-item-has-children">
-                    <a class="nav-link" href="{{ route('knowledge-center') }}">Resources</a>
+                    <a class="nav-link" href="javascript:;">Resources</a>
                     <ul class="dropdown-menu">
                         <li><a class="nav-link" href="{{ route('blog.index-front') }}">blog</a></li>
+                        <li><a class="nav-link" href="{{ route('knowledge-center') }}">Knowledge Center</a></li>
                         <li><a class="nav-link" href="{{ route('testimonial.index-front') }}">testimonial</a></li>
 
 

@@ -244,7 +244,19 @@
                                             <textarea name="transportation" id="transportation" class="form-control"
                                                       rows="3">{{ (old('transportation') != null) ? old('transportation') : @$hospital->transportation }}</textarea>
                                         </div>
+
+
                                     </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Top 10</label>
+                                    <select name="is_featured" class="form-control">
+                                        <option @if(isset($hospital) && $hospital->is_featured == 1) selected
+                                                @endif value="1">Yes</option>
+                                        <option @if(isset($hospital) && $hospital->is_featured == 0) selected
+                                                @endif value="0">No</option>
+                                    </select>
                                 </div>
 
                             </div>

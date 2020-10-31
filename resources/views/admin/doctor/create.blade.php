@@ -240,7 +240,15 @@
                                 <label>Education & Training</label>
                                 <textarea name="education_training" class="form-control" id="myeditor4" rows="3">{{ (old('education_training') != null) ? old('education_training') : @$doctor->education_training }}</textarea>
                             </div>
-
+                            <div class="form-group">
+                                <label>Top 10</label>
+                                <select name="is_featured" class="form-control">
+                                    <option @if(isset($doctor) && $doctor->is_featured == 1) selected
+                                            @endif value="1">Yes</option>
+                                    <option @if(isset($doctor) && $doctor->is_featured == 0) selected
+                                            @endif value="0">No</option>
+                                </select>
+                            </div>
                         </div>
 
 

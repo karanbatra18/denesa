@@ -274,6 +274,12 @@ form .themebtn,
 	color:#249bdc;
 	border-bottom:1px solid #249bdc;
 }
+
+.theme-color-altered{
+    color:#249bdc;
+    text-align: center;
+}
+
 .link-border {
     color: var(--theme-color);
     border-bottom: 1px solid var(--theme-color);
@@ -1201,6 +1207,30 @@ a.whatsapp ,#scroll{
 
 .popup-form .modal-dialog {
     max-width: 1200px;
+}
+.hidden_extra{
+    height: 163px;
+    overflow: hidden;
+}
+
+.show_comp .hidden_extra{
+    height: auto;
+}
+
+.read_less_medical{
+    display: none;
+}
+
+.read_more_medical{
+    display: block;
+}
+
+.show_comp .read_less_medical{
+    display: block !important;
+}
+
+.show_comp .read_more_medical{
+    display: none !important;
 }
 
 .popup-form .close {

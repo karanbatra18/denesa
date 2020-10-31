@@ -30,7 +30,8 @@ class Doctor extends Model
         'image',
         'slug',
         'meta_title',
-        'meta_description'
+        'meta_description',
+        'is_featured'
     ];
 
     /**

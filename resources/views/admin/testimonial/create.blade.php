@@ -149,9 +149,9 @@
                                 <div class="form-group">
                                     <label>Featured</label>
                                     <select name="is_featured" class="form-control">
-                                        <option @if(old('is_featured') == 1 || isset($testimonial) && $testimonial->is_featured == 1) selected
+                                        <option @if(isset($testimonial) && $testimonial->is_featured == 1) selected
                                                 @endif value="1">Yes</option>
-                                            <option @if(old('is_featured') == 0 || isset($testimonial) && $testimonial->is_featured == 0) selected
+                                            <option @if(isset($testimonial) && $testimonial->is_featured == 0) selected
                                                     @endif value="0">No</option>
                                     </select>
                                 </div>

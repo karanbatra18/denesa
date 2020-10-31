@@ -31,7 +31,8 @@ class Hospital extends Model
    	    'languauge',
    	    'transportation',
         'meta_title',
-        'meta_description'
+        'meta_description',
+        'is_featured'
 
     ];
 
