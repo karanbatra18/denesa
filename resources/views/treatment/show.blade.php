@@ -1,5 +1,12 @@
 @extends('layouts.main')
 @section('content')
+    @php
+        // Declare a variable and initialize it
+$variable = $treatment->title;
+// Use substr() and strpos() function to remove
+// portion of string after certain character
+$variable = substr($variable, 0, strpos($variable, "Cost in"));
+    @endphp
     <!-- Inner page title Start Here -->
 
     <section class="inner-page-title">
@@ -24,7 +31,7 @@
                 <li><a href="#top-hospital">Top Hospitals</a></li>
                 <li><a href="#top-doctors">Top Doctors</a></li>
             </ul>
-            <a href="" class="themebtn bg-white theme-color border-0 mt-0">FREE CONSULTATION</a>
+            <a href="javascript:;" class="themebtn bg-white theme-color border-0 mt-0 consulation_class">FREE CONSULTATION</a>
         </div>
     </section>
 
@@ -41,7 +48,7 @@
                             <div class="facilities cost-facilities">
                                 <div class="row no-gutters">
                                     <div class="col">
-                                        <h6 class="fs-14 open-sans fw-600 mb-0 py-4 px-3">Liver Transplant Price</h6>
+                                        <h6 class="fs-14 open-sans fw-600 mb-0 py-4 px-3">{{ $variable }} Price</h6>
                                         <ul class="list-unstyled py-3 ">
                                             <li>{{ $treatment->transplant_price }}</li>
                                         </ul>
@@ -82,7 +89,7 @@
 
             <div id="cost-in-india" class="mt-5 ">
 
-                <h2 class=" fw-600 text-left section-title">Liver Transplant Cost in India</h2>
+                <h2 class=" fw-600 text-left section-title">{{ $treatment->title }}</h2>
                 <p>{!! $treatment->cost !!}</p>
 
             </div>
@@ -123,7 +130,7 @@
 
         <div class="faqs py-5 theme-bg" id="faqs">
             <div class="container">
-                <h2 class=" fw-600 text-center section-title"> Frequently Asked Question About Liver Transplant</h2>
+                <h2 class=" fw-600 text-center section-title"> Frequently Asked Question About {{ $variable }}</h2>
                 <div class="accordion" id="accordion-faqs">
                     @if($treatment->faqs->count())
                         @foreach($treatment->faqs as $faq)
@@ -155,7 +162,7 @@
 
 
         <div id="top-hospital" class="container py-5">
-            <h2 class="section-title text-center ">Top Hospitals for Liver Transplant</h2>
+            <h2 class="section-title text-center ">Top Hospitals for {{ $variable }}</h2>
             @if($treatment->hospitals->count())
                 @foreach($treatment->hospitals as $hospital)
                     <div class="hospital-listing p-3 p-lg-5 shadow mb-5">
@@ -172,7 +179,7 @@
                             <div class="  col-xl-8  mb-4 mb-xl-0">
                                 <div class="row">
                                     <div class="col-md-4 order-sm-2 mb-2 mb-lg-0">
-                                        <a href="#" class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2">FREE
+                                        <a href="javascript:;" class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2 consulation_class">FREE
                                             Consultation</a>
                                     </div>
                                     <div class="col-md-8 order-sm-1 ">
@@ -213,7 +220,7 @@
 
         <div id="top-doctors" class="theme-bg happy-patients pt-5">
             <div class="container ">
-                <h2 class="section-title text-center ">Top Doctors for Liver Transplant</h2>
+                <h2 class="section-title text-center ">Top Doctors for {{ $variable }}</h2>
                 @if($treatment->doctors->count())
                     @foreach($treatment->doctors as $doctor)
                         <div class="doctors-listing shadow bg-white">
@@ -224,8 +231,8 @@
                                 <div class=" col-md-8  mb-4 mb-lg-0">
                                     <div class="row">
                                         <div class="col-xl-4 order-xl-2 mb-2 mb-lg-0">
-                                            <a href="#"
-                                               class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2">FREE
+                                            <a href="javascript:;"
+                                               class="themebtn mt-0 alt-btn theme-alt-bg text-white border-0 mb-2 consulation_class">FREE
                                                 Consultation</a>
                                         </div>
                                         <div class="col-xl-8">

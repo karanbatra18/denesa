@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4e53af8-9d67-4993-83cf-2e424ac7ecbe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Doctor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Doctor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Hospital.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Hospital.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HospitalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HospitalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_partials/main/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_partials/main/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/doctor/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/doctor/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/hospital/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/hospital/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/testimonial/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/testimonial/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/doctor/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctor/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/hospital/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hospital/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/treatment/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/treatment/show.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,16 +95,16 @@
           <entry key="css" value="164" />
           <entry key="html" value="1" />
           <entry key="js" value="23" />
-          <entry key="php" value="20452" />
+          <entry key="php" value="20539" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="11509" />
+          <entry key="Blade" value="11595" />
           <entry key="CSS" value="164" />
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="23" />
-          <entry key="PHP" value="8943" />
+          <entry key="PHP" value="8944" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -126,12 +114,12 @@
           <entry key="htaccess" value="1" />
           <entry key="html" value="1" />
           <entry key="js" value="3" />
-          <entry key="php" value="545" />
+          <entry key="php" value="546" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="204" />
+          <entry key="Blade" value="205" />
           <entry key="CSS" value="4" />
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="3" />
@@ -163,15 +151,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Hospital.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Doctor.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="526">
@@ -194,14 +173,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="280" column="82" selection-start-line="280" selection-start-column="82" selection-end-line="280" selection-end-column="82" />
+            <state relative-caret-position="382">
+              <caret line="308" column="77" selection-start-line="308" selection-start-column="60" selection-end-line="308" selection-end-column="77" />
               <folding>
                 <element signature="e#13100#13120#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/treatment/show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="181" column="153" selection-start-line="181" selection-start-column="149" selection-end-line="181" selection-end-column="153" />
             </state>
           </provider>
         </entry>
@@ -251,9 +239,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>select</find>
-      <find>speciality</find>
-      <find>close_gallery_panel</find>
       <find>Knowledge Ce</find>
       <find>treatment/getSearchData</find>
       <find>Testimonials</find>
@@ -281,6 +266,9 @@
       <find>show_comp</find>
       <find>hidden_extra</find>
       <find>.theme-color-alt</find>
+      <find>liver</find>
+      <find>knowledge</find>
+      <find>free</find>
     </findStrings>
     <dirStrings>
       <dir>D:\xampp\htdocs\denisa23\app</dir>
@@ -295,7 +283,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Comment.php" />
         <option value="$PROJECT_DIR$/app/Mail/ConsultationMail.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/consultation.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
@@ -346,6 +333,7 @@
         <option value="$PROJECT_DIR$/resources/views/hospital/index.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/resources/views/home/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/treatment/show.blade.php" />
       </list>
     </option>
   </component>
@@ -497,25 +485,20 @@
             <path>
               <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
               <item name="denisa23" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="denisa23" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
-              <item name="denisa23" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
               <item name="denisa23" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="denisa23" type="b2602c69:ProjectViewProjectNode" />
+              <item name="denisa23" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="treatment" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -597,12 +580,12 @@
       <workItem from="1603906359946" duration="2897000" />
       <workItem from="1603942484403" duration="603000" />
       <workItem from="1603981545512" duration="5550000" />
-      <workItem from="1604134304007" duration="10011000" />
+      <workItem from="1604134304007" duration="11929000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="351165000" />
+    <option name="totallyTimeSpent" value="353083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -659,9 +642,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/hospital/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -1002,11 +982,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="280" column="82" selection-start-line="280" selection-start-column="82" selection-end-line="280" selection-end-column="82" />
+        <state relative-caret-position="382">
+          <caret line="308" column="77" selection-start-line="308" selection-start-column="60" selection-end-line="308" selection-end-column="77" />
           <folding>
             <element signature="e#13100#13120#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/treatment/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="181" column="153" selection-start-line="181" selection-start-column="149" selection-end-line="181" selection-end-column="153" />
         </state>
       </provider>
     </entry>

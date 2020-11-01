@@ -298,8 +298,16 @@
                     <p>{!! \Str::limit($featuredNews->short_description, 250, '...') !!}</p>
                     <a href="{{ route('knowledge-center.show', ['slug' => $featuredNews->slug]) }}"
                        class="themebtn alt-btn">READ MORE</a><br/>
-                    <a href="{{ route('knowledge-center') }}" class="themebtn mt-5 ">view all</a>
+
+                    {{--<a href="#" class="themebtn mx-2 consulation_class">Free consultation</a>
+                    <a href="{{ route('knowledge-center') }}" class="themebtn alt-btn mx-2">view all</a>--}}
+                    {{--<a href="" class="themebtn mt-5 ">view all</a>--}}
                 </div>
+
+            </div>
+            <div class="text-center mt-4 ">
+                <a href="javascript:;" class="themebtn mx-2 consulation_class">Free consultation</a>
+                <a href="{{ route('knowledge-center') }}" class="themebtn alt-btn mx-2">View all News</a>
             </div>
         </div>
     </section>
