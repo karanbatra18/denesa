@@ -5,7 +5,7 @@
 $variable = $treatment->title;
 // Use substr() and strpos() function to remove
 // portion of string after certain character
-$variable = substr($variable, 0, strpos($variable, "Cost in"));
+$variable = substr($variable, 0, strpos($variable, "COST IN"));
     @endphp
     <!-- Inner page title Start Here -->
 
