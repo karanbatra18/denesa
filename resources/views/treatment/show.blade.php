@@ -5,7 +5,7 @@
 $variable = $treatment->title;
 // Use substr() and strpos() function to remove
 // portion of string after certain character
-$variable = substr($variable, 0, strpos($variable, "COST IN"));
+$variable = ucwords(strtolower(substr($variable, 0, strpos($variable, "COST IN"))));
     @endphp
     <!-- Inner page title Start Here -->
 
@@ -89,7 +89,7 @@ $variable = substr($variable, 0, strpos($variable, "COST IN"));
 
             <div id="cost-in-india" class="mt-5 ">
 
-                <h2 class=" fw-600 text-left section-title">{{ $treatment->title }}</h2>
+                <h2 class=" fw-600 text-left section-title">{{ $variable.'Cost In India' }}</h2>
                 <p>{!! $treatment->cost !!}</p>
 
             </div>

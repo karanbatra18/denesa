@@ -94,12 +94,12 @@
           <entry key="css" value="164" />
           <entry key="html" value="1" />
           <entry key="js" value="23" />
-          <entry key="php" value="20545" />
+          <entry key="php" value="20569" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="11601" />
+          <entry key="Blade" value="11625" />
           <entry key="CSS" value="164" />
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="23" />
@@ -187,8 +187,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/treatment/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+            <state relative-caret-position="374">
+              <caret line="91" column="87" selection-start-line="91" selection-start-column="87" selection-end-line="91" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -463,7 +463,7 @@
       <path value="$PROJECT_DIR$/vendor/brick/math" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1026" />
@@ -579,12 +579,12 @@
       <workItem from="1603906359946" duration="2897000" />
       <workItem from="1603942484403" duration="603000" />
       <workItem from="1603981545512" duration="5550000" />
-      <workItem from="1604134304007" duration="12504000" />
+      <workItem from="1604134304007" duration="13185000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="353658000" />
+    <option name="totallyTimeSpent" value="354339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -991,8 +991,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/treatment/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+        <state relative-caret-position="374">
+          <caret line="91" column="87" selection-start-line="91" selection-start-column="87" selection-end-line="91" selection-end-column="87" />
         </state>
       </provider>
     </entry>
