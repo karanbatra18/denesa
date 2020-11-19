@@ -136,7 +136,7 @@
 
                 <div class="row py-4">
                     <div class=" col-md-5 py-5 align-self-center">
-                        <img class="mb-4" src="{{ asset('assets/images/medanta.png') }}" alt=""/>
+                        {{--<img class="mb-4" src="{{ asset('assets/images/medanta.png') }}" alt=""/>--}}
                         <p>{!! !empty($videoTestimonial) ? $videoTestimonial->short_description : '' !!}</p>
                         <h6 class="fs-15 fw-700 open-sans mt-4">{{ !empty($videoTestimonial) ? $videoTestimonial->title : '' }}</h6>
                         <h6 class="open-sans fs-14 "> {{ @$videoTestimonial->place }} {{--Director: Neuro & Spine Surgery--}}</h6>

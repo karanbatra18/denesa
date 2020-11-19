@@ -11,7 +11,7 @@ $variable = ucwords(strtolower(substr($variable, 0, strpos($variable, "COST IN")
 
     <section class="inner-page-title">
         <div class="container  ">
-            <h2 class="text-white text-center fw-500">Treatment Costs</h2>
+            <h2 class="text-white text-center fw-500">{{ $treatment->title }}</h2>
         </div>
     </section>
 

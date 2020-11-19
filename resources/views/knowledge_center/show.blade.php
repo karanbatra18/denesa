@@ -61,7 +61,7 @@
                     <h6 class="theme-alt-bg open-sans p-4 fw-600 rounded-top text-white mb-0">CATEGORIES</h6>
                     <ul class="list-unstyled mb-0 px-4">
 
-                        <li><a class="py-3 d-flex justify-content-between align-items-center" href="{{ route('knowledge-center') }}">All (21) <i
+                        <li><a class="py-3 d-flex justify-content-between align-items-center" href="{{ route('knowledge-center') }}">All ({{ $totalCount }}) <i
                                         class="fas fa-chevron-right"></i></a></li>
                         @foreach($categories as $category)
                         <li><a class="py-3 d-flex justify-content-between align-items-center" href="{{ route('knowledge-center.category', $category->slug) }}">{{ $category->name }} ( {{ $category->knowledge_centers->count() }}) <i

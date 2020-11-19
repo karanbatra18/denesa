@@ -41,7 +41,7 @@
                             <img class="pl-4 position-relative" src="assets/images/queries.png" alt="" />
                         </div>
                         <h4 class="fw-600 muli-font pt-4">General Queries</h4>
-                        <p>{{ $contactSupport->general_text }}</p>
+                        <p>{!! $contactSupport->general_text !!}</p>
                         <p><span class="d-block theme-color">{{ $contactSupport->general_browse_text }}</span>
                             <a href="mailto:{{ $contactSupport->general_email_id }}">{{ $contactSupport->general_email_id }}</a></p>
                         <a href="{{ $contactSupport->general_link }}" class="themebtn alt-btn ">drop a query</a>
@@ -70,7 +70,7 @@
                         <div class="col-lg-6 mb-4">
                             <ul class="list-unstyled">
                                 <li class="position-relative mb-4 py-1 fw-600 pl-5"><img src="{{ asset('assets/images/flag.png') }}" class=" d-block  position-absolute l-0 t-0" alt /> {{ $callSale->place }}</li>
-                                <li class="position-relative mb-3"><i class="fas fa-map-marker-alt pt-1 d-block theme-color position-absolute l-0 t-0"></i>{{ $callSale->address }}</li>
+                                <li class="position-relative mb-3"><i class="fas fa-map-marker-alt pt-1 d-block theme-color position-absolute l-0 t-0"></i>{!! $callSale->address !!}</li>
 
                                 <li class="position-relative"><i class="fas pt-1 d-block theme-color fa-phone-alt position-absolute l-0 t-0"></i><a href="tel:{{ $callSale->phone }}">{{ $callSale->phone }}</a></li>
                             </ul>
