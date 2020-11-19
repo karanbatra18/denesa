@@ -150,7 +150,7 @@
                                 <img src="{{ @ asset($videoTestimonial->image) }}" alt=""/>
                                 @endif
                                 <div class="video-icon position-absolute d-flex w-100 h-100 align-items-center t-0 justify-content-center">
-                                    <img src="{{ asset('assets/images/play.png') }}" alt=""/>
+                                    <img style="max-height: 403px;" src="{{ asset('assets/images/play.png') }}" alt=""/>
                                 </div>
                             </div>
                         </div>

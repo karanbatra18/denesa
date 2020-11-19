@@ -98,7 +98,7 @@
         <div class="container pb-5  position-relative">
             <div class="row justify-content-center pt-md-5 pt-4 pb-5	">
                 <div class="col-lg-8 col-md-10 pt-xl-5 text-center">
-                    <h1 class="text-white">Lorem Ipsum Dolor Sit Amet </h1>
+                    <h1 class="text-white">Welcome To DenesaHealth </h1>
                     <h4 class="text-white">Search Treatment</h4>
                     <form class="form-inline  search-form mb-3 mt-3 mb-md-0">
 
