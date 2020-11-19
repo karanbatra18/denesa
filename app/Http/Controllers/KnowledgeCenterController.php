@@ -77,11 +77,18 @@ class KnowledgeCenterController extends Controller
      */
     public function show($slug)
     {
+        $query = KnowledgeCenter::whereStatus('publish')->where(function($q) {
+            $q->where('published_at', '<=' , Carbon::now())
+                ->orWhereNull('published_at');
+        });
+
+        $totalCount = $query->count();
+
         $knowledgeCenter = KnowledgeCenter::whereSlug($slug)->firstOrFail();
         $categories = Category::where(['type' => 'news'])->get();
         $recentKnowledgeCenters = KnowledgeCenter::where('id','!=',$knowledgeCenter->id)->latest()->limit(3)->get();
         $similarKnowledgeCenters = KnowledgeCenter::where('id','!=',$knowledgeCenter->id)->latest()->limit(3)->get();
-        return view('knowledge_center.show', compact('knowledgeCenter', 'recentKnowledgeCenters' , 'categories'));
+        return view('knowledge_center.show', compact('knowledgeCenter', 'recentKnowledgeCenters' , 'categories', 'totalCount'));
     }
 
     
