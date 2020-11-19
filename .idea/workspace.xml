@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4e53af8-9d67-4993-83cf-2e424ac7ecbe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/_partials/main/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_partials/main/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,12 +95,12 @@
           <entry key="env" value="6" />
           <entry key="html" value="1" />
           <entry key="js" value="23" />
-          <entry key="php" value="20707" />
+          <entry key="php" value="20709" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="11747" />
+          <entry key="Blade" value="11749" />
           <entry key="CSS" value="164" />
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="23" />
@@ -137,10 +136,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="152" column="66" selection-start-line="152" selection-start-column="66" selection-end-line="152" selection-end-column="66" />
+            <state relative-caret-position="212">
+              <caret line="149" column="64" selection-start-line="149" selection-start-column="64" selection-end-line="149" selection-end-column="64" />
               <folding>
-                <element signature="e#7310#7336#0#HTML" expanded="true" />
+                <element signature="e#7035#7061#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -623,12 +622,12 @@
       <workItem from="1603942484403" duration="603000" />
       <workItem from="1603981545512" duration="5550000" />
       <workItem from="1604134304007" duration="13783000" />
-      <workItem from="1605804415011" duration="4658000" />
+      <workItem from="1605804415011" duration="4844000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359595000" />
+    <option name="totallyTimeSpent" value="359781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1020,10 +1019,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="152" column="66" selection-start-line="152" selection-start-column="66" selection-end-line="152" selection-end-column="66" />
+        <state relative-caret-position="212">
+          <caret line="149" column="64" selection-start-line="149" selection-start-column="64" selection-end-line="149" selection-end-column="64" />
           <folding>
-            <element signature="e#7310#7336#0#HTML" expanded="true" />
+            <element signature="e#7035#7061#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

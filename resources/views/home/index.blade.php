@@ -147,10 +147,10 @@
                             <div class="vid-play  position-absolute r-0 t-0 " data-toggle="modal"
                                  data-target="#exampleModalCenter">
                                 @if(!empty($videoTestimonial))
-                                <img src="{{ @ asset($videoTestimonial->image) }}" alt=""/>
+                                <img style="max-height: 403px;" src="{{ @ asset($videoTestimonial->image) }}" alt=""/>
                                 @endif
                                 <div class="video-icon position-absolute d-flex w-100 h-100 align-items-center t-0 justify-content-center">
-                                    <img style="max-height: 403px;" src="{{ asset('assets/images/play.png') }}" alt=""/>
+                                    <img  src="{{ asset('assets/images/play.png') }}" alt=""/>
                                 </div>
                             </div>
                         </div>
