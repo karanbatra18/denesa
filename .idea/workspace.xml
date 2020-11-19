@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4e53af8-9d67-4993-83cf-2e424ac7ecbe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HospitalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HospitalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_partials/main/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-us/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-us/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/doctor/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctor/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/hospital/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hospital/show.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,12 +94,12 @@
           <entry key="css" value="164" />
           <entry key="html" value="1" />
           <entry key="js" value="23" />
-          <entry key="php" value="20642" />
+          <entry key="php" value="20665" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="11682" />
+          <entry key="Blade" value="11705" />
           <entry key="CSS" value="164" />
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="23" />
@@ -147,20 +140,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="149" column="46" selection-start-line="149" selection-start-column="46" selection-end-line="149" selection-end-column="46" />
+            <state relative-caret-position="467">
+              <caret line="308" column="18" selection-start-line="308" selection-start-column="18" selection-end-line="308" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/contact-us/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="61" lean-forward="true" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+            <state relative-caret-position="444">
+              <caret line="95" selection-start-line="95" selection-end-line="95" />
             </state>
           </provider>
         </entry>
@@ -325,8 +318,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/HospitalController.php" />
         <option value="$PROJECT_DIR$/resources/views/hospital/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/doctor/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/contact-us/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home/index.blade.php" />
       </list>
     </option>
   </component>
@@ -602,12 +595,12 @@
       <workItem from="1603942484403" duration="603000" />
       <workItem from="1603981545512" duration="5550000" />
       <workItem from="1604134304007" duration="13783000" />
-      <workItem from="1605804415011" duration="2148000" />
+      <workItem from="1605804415011" duration="2625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="357085000" />
+    <option name="totallyTimeSpent" value="357562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -990,17 +983,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/contact-us/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="149" column="46" selection-start-line="149" selection-start-column="46" selection-end-line="149" selection-end-column="46" />
+        <state relative-caret-position="444">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/contact-us/show.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/home/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="61" lean-forward="true" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+        <state relative-caret-position="467">
+          <caret line="308" column="18" selection-start-line="308" selection-start-column="18" selection-end-line="308" selection-end-column="18" />
         </state>
       </provider>
     </entry>

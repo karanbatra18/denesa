@@ -290,9 +290,10 @@
     <section class=" py-5 ">
         <div class="container py-3 ">
             <h2 class="section-title text-center">Knowledge Center</h2>
+            @if(!empty($featuredNews))
             <div class="row">
                 <div class="col-lg-5 mb-4 mb-xl-0">
-                    <img src="{{ asset($featuredNews->featured_image) }}" class="shadow" alt=""/>
+                    <img src="{{ @ asset($featuredNews->featured_image) }}" class="shadow" alt=""/>
                 </div>
                 <div class="col-lg-7">
                     <p>{!! \Str::limit($featuredNews->short_description, 250, '...') !!}</p>
@@ -305,6 +306,7 @@
                 </div>
 
             </div>
+            @endif
             <div class="text-center mt-4 ">
                 <a href="javascript:;" class="themebtn mx-2 consulation_class">Free consultation</a>
                 <a href="{{ route('knowledge-center') }}" class="themebtn alt-btn mx-2">View all News</a>
