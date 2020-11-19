@@ -40,11 +40,13 @@ class DoctorController extends Controller
 
         if($specialityQuery) {
             $doctors = Doctor::where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $doctorIds)->paginate(10);
-            $topDoctors  = Doctor::where('is_featured',1)->where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $doctorIds)->limit(10);
+            $topDoctors  = Doctor::where('is_featured',1)->where($cityCondition)->where('speciality', 'like', '%' . $specialityQuery . '%')->whereIn('id', $doctorIds)->limit(10)->get();
         } else {
             $doctors = Doctor::where($cityCondition)->whereIn('id', $doctorIds)->paginate(10);
-            $topDoctors  = Doctor::where('is_featured',1)->where($cityCondition)->whereIn('id', $doctorIds)->limit(10);
+            $topDoctors  = Doctor::where('is_featured',1)->where($cityCondition)->whereIn('id', $doctorIds)->limit(10)->get();
         }
+
+        //dd($topDoctors);
         return view('doctor.index', compact('doctors','cities', 'treatments', 'specialityQuery', 'cityQuery', 'treatmentQuery', 'topDoctors'));
     }
 

@@ -135,10 +135,10 @@
                     @foreach($doctors as $doctor)
                 <div class="col-lg-6 col-xl-3 mb-4">
                     @if(!empty($doctor->image))
-                    <img src="{{ asset($doctor->image) }}" alt="">
+                    <a href="{{ route('doctor.show-front', ['slug' => $doctor->slug]) }}"><img src="{{ asset($doctor->image) }}" alt=""></a>
                     @endif
                     <div class="details-box bg-white px-3 py-4 position-relative text-center">
-                        <h6 class="open-sans fw-700">{{ $doctor->name }}</h6>
+                        <h6 class="open-sans fw-700"><a href="{{ route('doctor.show-front', ['slug' => $doctor->slug]) }}">{{ $doctor->name }}</a></h6>
                         <h6 class="fs-13">{{ $doctor->designation }}</h6>
                     </div>
                 </div>
@@ -147,10 +147,10 @@
 
 
             </div>
-            <div class="text-center">
+            {{--<div class="text-center">
 
                 <a href="#" class="themebtn alt-btn ">LOAD MORE</a>
-            </div>
+            </div>--}}
         </div>
 
 
@@ -167,9 +167,9 @@
     <div class="container py-3 ">
         <div class="px-lg-5 text-center">
 
-            <h2 class="section-title ">Top 10 Hospitals in India</h2>
+           {{-- <h2 class="section-title ">Top 10 Hospitals in India</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-
+--}}
         </div>
     </div>
 </section>

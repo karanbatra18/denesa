@@ -139,7 +139,7 @@
                         <img class="mb-4" src="{{ asset('assets/images/medanta.png') }}" alt=""/>
                         <p>{!! !empty($videoTestimonial) ? $videoTestimonial->short_description : '' !!}</p>
                         <h6 class="fs-15 fw-700 open-sans mt-4">{{ !empty($videoTestimonial) ? $videoTestimonial->title : '' }}</h6>
-                        <h6 class="open-sans fs-14 "> {{ $videoTestimonial->place }} {{--Director: Neuro & Spine Surgery--}}</h6>
+                        <h6 class="open-sans fs-14 "> {{ @$videoTestimonial->place }} {{--Director: Neuro & Spine Surgery--}}</h6>
                     </div>
                     <div class="col-md-7 mb-4 mb-lg-0 text-lg-right">
 
@@ -147,7 +147,7 @@
                             <div class="vid-play  position-absolute r-0 t-0 " data-toggle="modal"
                                  data-target="#exampleModalCenter">
                                 @if(!empty($videoTestimonial))
-                                <img src="{{ asset($videoTestimonial->image) }}" alt=""/>
+                                <img src="{{ @ asset($videoTestimonial->image) }}" alt=""/>
                                 @endif
                                 <div class="video-icon position-absolute d-flex w-100 h-100 align-items-center t-0 justify-content-center">
                                     <img src="{{ asset('assets/images/play.png') }}" alt=""/>

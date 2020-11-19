@@ -22,7 +22,7 @@
                             <img class="pl-4 position-relative" src="assets/images/supports.png" alt="" />
                         </div>
                         <h4 class="fw-600 muli-font pt-4">Support</h4>
-                        <p>{{ $contactSupport->support_text }}</p>
+                        {!! $contactSupport->support_text !!}
                         <p><span class="d-block theme-color">{{ $contactSupport->support_browse_text }}</span>
                             <a href="mailto:{{ $contactSupport->support_email_id }}">{{ $contactSupport->support_email_id }}</a></p>
                         <a href="{{ $contactSupport->support_link }}" class="themebtn alt-btn ">Contact support</a>

@@ -184,7 +184,7 @@
                     @if(!empty($footerHospitals))
                         @foreach($footerHospitals as $footerHospital)
 
-                            <li class="mb-2">{{ $footerHospital->name }}, {{ $footerHospital->place }}</li>
+                            <li class="mb-2"><a href="{{ $footerHospital->link ? $footerHospital->link : 'javascript:;' }}">{{ $footerHospital->name }}, {{ $footerHospital->place }}</a></li>
                         @endforeach
                     @endif
 
@@ -193,11 +193,10 @@
             <div class="col-md-6 col-lg-3">
                 <h6 class="theme-color fs-14 fw-600 open-sans mt-2 mb-3">{{ !empty($footerIntroduction->doctor_heading) ? $footerIntroduction->doctor_heading : ''}}</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2">Dr Sandeep Vaishya,Gurugram</li>
                     @if(!empty($footerDoctors))
                         @foreach($footerDoctors as $footerDoctor)
 
-                            <li class="mb-2">{{ $footerDoctor->name }}, {{ $footerDoctor->place }}</li>
+                            <li class="mb-2"><a href="{{ $footerDoctor->link ? $footerDoctor->link : 'javascript:;' }}">{{ $footerDoctor->name }}, {{ $footerDoctor->place }}</a></li>
                         @endforeach
                     @endif
                 </ul>
@@ -205,11 +204,10 @@
             <div class="col-md-6 col-lg-3">
                 <h6 class="theme-color fs-14 fw-600 open-sans mt-2 mb-3">{{ !empty($footerIntroduction->service_heading) ? $footerIntroduction->service_heading : ''}}</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2">Free Quote & Opinion from Best Hospitals</li>
                     @if(!empty($footerServices))
                         @foreach($footerServices as $footerService)
 
-                            <li class="mb-2">{{ $footerService->name }}</li>
+                            <li class="mb-2"><a href="{{ $footerService->link ? $footerService->link : 'javascript:;' }}">{{ $footerService->name }}</a></li>
                         @endforeach
                     @endif
                 </ul>
