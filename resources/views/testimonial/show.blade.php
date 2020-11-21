@@ -48,7 +48,7 @@
             @endif
         </div>
     </section>
-    @if(!empty($relatedTestimonials))
+    @if(!empty($relatedTestimonials->count()))
     <section class="pt-5  happy-patients">
         <div class="container py-4 text-center ">
             <h2 class="section-title fw-600 blue-border-top pt-5">You May Also Be Interested In</h2>
@@ -59,7 +59,7 @@
                         <img class="border" src="{{ asset($relatedTestimonial->image) }}" alt=""/>
                         <div class="p-4 text-center">
                             <h6 class="fw-600 ">{{ $relatedTestimonial->title }}, {{ $relatedTestimonial->place }}</h6>
-                            {!! substr($relatedTestimonial->short_description,0, 150) !!}
+                            {!! substr($relatedTestimonial->short_description,0, 120) !!}
                         </div>
                         <div class=" x-0 position-absolute b-0 text-center"><a href="{{ route('testimonial.show-front',['slug' => $relatedTestimonial->slug]) }}"
                                                                                class="themebtn ">READ MORE</a></div>
