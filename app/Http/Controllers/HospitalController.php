@@ -58,6 +58,8 @@ class HospitalController extends Controller
     {
         $hospital = Hospital::where(['slug' => $slug])->first();
         $doctors = $hospital->doctors()->get();
-        return view('hospital.show', compact('hospital','doctors'));
+        $metaTitle = $hospital->meta_title;
+        $metaDescription = $hospital->meta_description;
+        return view('hospital.show', compact('hospital','doctors', 'metaTitle', 'metaDescription'));
     }
 }

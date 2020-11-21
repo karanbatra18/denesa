@@ -134,7 +134,9 @@ class TreatmentController extends Controller
     public function show($slug)
     {
         $treatment = Treatment::whereSlug($slug)->first();
-        return view('treatment.show', compact('treatment'));
+        $metaTitle = $treatment->meta_title;
+        $metaDescription = $treatment->meta_description;
+        return view('treatment.show', compact('treatment', 'metaTitle', 'metaDescription'));
     }
 
     /**

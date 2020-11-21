@@ -60,6 +60,8 @@ class DoctorController extends Controller
     public function show($slug)
     {
         $doctor = Doctor::where(['slug' => $slug])->first();
-        return view('doctor.show', compact('doctor'));
+        $metaTitle = $doctor->meta_title;
+        $metaDescription = $doctor->meta_description;
+        return view('doctor.show', compact('doctor', 'metaTitle', 'metaDescription'));
     }
 }

@@ -73,7 +73,9 @@ class PostController extends Controller
     {
         $post = Post::whereSlug($slug)->firstOrFail();
         $relatedPosts = Post::where('id','!=',$post->id)->latest()->limit(3)->get();
-        return view('post.show', compact('post','relatedPosts'));
+        $metaTitle = $post->meta_title;
+        $metaDescription = $post->meta_description;
+        return view('post.show', compact('post','relatedPosts', 'metaTitle', 'metaDescription'));
     }
 
     public function addComment(Request $request)

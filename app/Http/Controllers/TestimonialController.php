@@ -57,7 +57,9 @@ class TestimonialController extends Controller
     {
         $testimonial = Testimonial::with('images')->whereSlug($slug)->firstOrFail();
         $relatedTestimonials = Testimonial::with('images')->where('id','!=',$testimonial->id)->latest()->limit(3)->get();
-        return view('testimonial.show', compact('testimonial','relatedTestimonials'));
+        $metaTitle = $testimonial->meta_title;
+        $metaDescription = $testimonial->meta_description;
+        return view('testimonial.show', compact('testimonial','relatedTestimonials', 'metaTitle', 'metaDescription'));
     }
 
     

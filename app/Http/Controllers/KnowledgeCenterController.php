@@ -88,7 +88,9 @@ class KnowledgeCenterController extends Controller
         $categories = Category::where(['type' => 'news'])->get();
         $recentKnowledgeCenters = KnowledgeCenter::where('id','!=',$knowledgeCenter->id)->latest()->limit(3)->get();
         $similarKnowledgeCenters = KnowledgeCenter::where('id','!=',$knowledgeCenter->id)->latest()->limit(3)->get();
-        return view('knowledge_center.show', compact('knowledgeCenter', 'recentKnowledgeCenters' , 'categories', 'totalCount'));
+        $metaTitle = $knowledgeCenter->meta_title;
+        $metaDescription = $knowledgeCenter->meta_description;
+        return view('knowledge_center.show', compact('knowledgeCenter', 'recentKnowledgeCenters' , 'categories', 'totalCount', 'metaTitle', 'metaDescription'));
     }
 
     
