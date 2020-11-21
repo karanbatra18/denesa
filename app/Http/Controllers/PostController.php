@@ -39,7 +39,7 @@ class PostController extends Controller
 
         $categories = Category::where(['type' => 'post'])->get();
 
-        return view('post.index', compact('posts', 'categories', 'topics', 'totalCount', 'featuredPost'));
+        return view('post.index', compact('posts', 'categories',  'totalCount', 'featuredPost'));
 
     }
 

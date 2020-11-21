@@ -25,7 +25,7 @@ class TestimonialController extends Controller
 
         $categories = Category::where(['type' => 'testimonial'])->get();
 
-        return view('testimonial.index', compact('testimonials', 'categories', 'topics', 'totalCount'));
+        return view('testimonial.index', compact('testimonials', 'categories', 'totalCount'));
 
     }
 
