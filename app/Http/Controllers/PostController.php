@@ -45,7 +45,7 @@ class PostController extends Controller
 
     public function indexCategory($slug)
     {
-        $category = Category::where(['slug' => $slug])->first();
+        $category = Category::where(['slug' => $slug])->firstOrFail();
         $query = $category->posts()->whereStatus('publish')->where(function($q) {
             $q->where('published_at', '<=' , Carbon::now())
                 ->orWhereNull('published_at');
