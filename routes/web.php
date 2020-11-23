@@ -25,21 +25,21 @@ Route::get('/knowledge-center/topic/{topic}', 'KnowledgeCenterController@indexTa
 Route::get('/knowledge-center', 'KnowledgeCenterController@index')->name('knowledge-center');
 Route::get('/knowledge-center/{slug}', 'KnowledgeCenterController@show')->name('knowledge-center.show');
 
-Route::get('/testimonial/category/{category}', 'TestimonialController@indexCategory')->name('testimonial.category');
-Route::get('/testimonial', 'TestimonialController@index')->name('testimonial.index-front');
-Route::get('/testimonial/{slug}', 'TestimonialController@show')->name('testimonial.show-front');
+Route::get('/testimonials/category/{category}', 'TestimonialController@indexCategory')->name('testimonial.category');
+Route::get('/testimonials', 'TestimonialController@index')->name('testimonial.index-front');
+Route::get('/testimonials/{slug}', 'TestimonialController@show')->name('testimonial.show-front');
 Route::get('/admin', 'Auth\LoginController@showLoginForm');
 
 Route::get('/blog/category/{category}', 'PostController@indexCategory')->name('blog.category');
 Route::get('/blog', 'PostController@index')->name('blog.index-front');
 Route::get('/blog/{slug}', 'PostController@show')->name('blog.show-front');
 
-Route::get('/contact-us', 'ContactUsController@show')->name('contact-us.show');
+Route::get('/contact', 'ContactUsController@show')->name('contact-us.show');
 
 Route::get('/doctors', 'DoctorController@index')->name('doctor.index-front');
 Route::get('/doctor/{slug}', 'DoctorController@show')->name('doctor.show-front');
 
-Route::get('/hospitals', 'HospitalController@index')->name('hospital.index-front');
+Route::get('/hospital', 'HospitalController@index')->name('hospital.index-front');
 Route::get('/hospital/{slug}', 'HospitalController@show')->name('hospital.show-front');
 
 

@@ -27,7 +27,7 @@
                             <a href="mailto:{{ $contactSupport->support_email_id }}">{{ $contactSupport->support_email_id }}</a></p>
                         <a href="{{ $contactSupport->support_link }}" class="themebtn alt-btn ">Contact support</a>
                         <ul class="list-unstyled social mt-4 support">
-                            <li class="mb-1 ml-0"><a href="{{ $contactSupport->support_whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <li class="mb-1 ml-0"><a href="{{ $contactSupport->support_whatsapp ? "https://api.whatsapp.com/send?phone=".$contactSupport->support_whatsapp : 'https://api.whatsapp.com/send?phone=+917428231453' }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
                             </li>
                             <li class="mb-1 ml-0"><a href="mailto:{{ $contactSupport->support_email }}" target="_blank"><i class="fas fa-envelope"></i></a>
                             </li >
@@ -46,7 +46,7 @@
                             <a href="mailto:{{ $contactSupport->general_email_id }}">{{ $contactSupport->general_email_id }}</a></p>
                         <a href="{{ $contactSupport->general_link }}" class="themebtn alt-btn ">drop a query</a>
                         <ul class="list-unstyled social mt-4 support">
-                            <li class="mb-1 ml-0"><a href="{{ $contactSupport->general_whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <li class="mb-1 ml-0"><a href="{{ $contactSupport->general_whatsapp ? "https://api.whatsapp.com/send?phone=".$contactSupport->general_whatsapp : 'https://api.whatsapp.com/send?phone=+917428231453' }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
                             </li>
                             <li class="mb-1 ml-0"><a href="mailto:{{ $contactSupport->general_email }}" target="_blank"><i class="fas fa-envelope"></i></a>
                             </li >

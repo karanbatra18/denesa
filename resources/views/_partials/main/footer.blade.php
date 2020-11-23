@@ -246,7 +246,7 @@
     </div>
 </footer>
 
-<a href="#" class="whatsapp position-fixed m-2  l-0 b-0"><img src="assets/images/whatsapp.png" alt=""/></a>
+<a href="https://api.whatsapp.com/send?phone=+917428231453" class="whatsapp position-fixed m-2  l-0 b-0"><img src="assets/images/whatsapp.png" alt=""/></a>
 <a href="#" id="scroll" style="display: none;"><span></span></a>
 
 

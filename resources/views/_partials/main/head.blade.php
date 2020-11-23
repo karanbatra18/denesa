@@ -4,7 +4,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <title>{{ isset($metaTitle) ? $metaTitle : '' }}</title>
 
-<!-- This site is optimized with the Yoast SEO plugin v13.3 - https://yoast.com/wordpress/plugins/seo/ -->
 <meta name="description" content="{{ isset($metaDescription) ? $metaDescription : '' }}"/>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -18,4 +17,5 @@
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
 <title>Denesa Health</title>
+
 
