@@ -54,7 +54,7 @@
                 @endif
             </div>
             <div class="text-center">
-                <a href="#" class="themebtn mx-2">Connect to Specialist</a>
+                <a href="javascript:;" class="themebtn mx-2 consulation_class">Connect to Specialist</a>
                 <a href="{{ route('treatment.indexFront') }}" class="themebtn alt-btn mx-2">View All Treatments</a>
             </div>
         </div>
@@ -82,7 +82,7 @@
 
             </div>
             <div class="text-center ">
-                <a href="#" class="themebtn mx-2">Connect to Specialist</a>
+                <a href="javascript:;" class="themebtn mx-2 consulation_class">Connect to Specialist</a>
                 <a href="{{ route('hospital.index-front') }}" class="themebtn alt-btn mx-2">View All Hospitals</a>
             </div>
         </div>
@@ -117,7 +117,7 @@
 
             </div>
             <div class="text-center mt-4 ">
-                <a href="#" class="themebtn mx-2">Connect to Specialist</a>
+                <a href="javascript:;" class="themebtn mx-2 consulation_class">Connect to Specialist</a>
                 <a href="{{ route('doctor.index-front') }}" class="themebtn alt-btn mx-2">View All Doctors</a>
             </div>
         </div>
