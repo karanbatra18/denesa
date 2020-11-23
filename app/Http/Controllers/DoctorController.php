@@ -59,7 +59,7 @@ class DoctorController extends Controller
      */
     public function show($slug)
     {
-        $doctor = Doctor::where(['slug' => $slug])->first();
+        $doctor = Doctor::where(['slug' => $slug])->firstOrFail();
         $metaTitle = $doctor->meta_title;
         $metaDescription = $doctor->meta_description;
         return view('doctor.show', compact('doctor', 'metaTitle', 'metaDescription'));

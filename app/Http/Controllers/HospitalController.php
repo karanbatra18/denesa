@@ -56,7 +56,7 @@ class HospitalController extends Controller
      */
     public function show($slug)
     {
-        $hospital = Hospital::where(['slug' => $slug])->first();
+        $hospital = Hospital::where(['slug' => $slug])->firstOrFail();
         $doctors = $hospital->doctors()->get();
         $metaTitle = $hospital->meta_title;
         $metaDescription = $hospital->meta_description;

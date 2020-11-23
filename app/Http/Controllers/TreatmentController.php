@@ -133,7 +133,7 @@ class TreatmentController extends Controller
      */
     public function show($slug)
     {
-        $treatment = Treatment::whereSlug($slug)->first();
+        $treatment = Treatment::whereSlug($slug)->firstOrFail();
         $metaTitle = $treatment->meta_title;
         $metaDescription = $treatment->meta_description;
         return view('treatment.show', compact('treatment', 'metaTitle', 'metaDescription'));

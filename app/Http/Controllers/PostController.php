@@ -59,12 +59,13 @@ class PostController extends Controller
         })->count();
 
         //$totalCount = $query->count();
+        $featuredPost = Post::where('is_featured',1)->orderBy('updated_at','desc')->first();
 
         $categories = Category::where(['type' => 'post'])->get();
 
 
 
-        return view('post.index', compact('posts', 'categories', 'topics', 'totalCount'));
+        return view('post.index', compact('posts', 'categories', 'totalCount', 'featuredPost'));
 
     }
 
