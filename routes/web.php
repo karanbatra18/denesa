@@ -37,7 +37,7 @@ Route::get('/blog/{slug}', 'PostController@show')->name('blog.show-front');
 Route::get('/contact', 'ContactUsController@show')->name('contact-us.show');
 
 Route::get('/doctors', 'DoctorController@index')->name('doctor.index-front');
-Route::get('/doctor/{slug}', 'DoctorController@show')->name('doctor.show-front');
+Route::get('/doctors/{slug}', 'DoctorController@show')->name('doctor.show-front');
 
 Route::get('/hospital', 'HospitalController@index')->name('hospital.index-front');
 Route::get('/hospital/{slug}', 'HospitalController@show')->name('hospital.show-front');
