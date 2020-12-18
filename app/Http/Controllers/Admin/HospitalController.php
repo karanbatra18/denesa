@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\SiteModule;
 use App\Speciality;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -60,6 +61,16 @@ class HospitalController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Hospitals')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_write == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $states = State::get();
         $hospitalSpecialities = Speciality::where(['type'=>'hospital'])->get();
         $cities = [];
@@ -115,6 +126,16 @@ class HospitalController extends Controller
      */
     public function edit(Hospital $hospital)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Hospitals')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_edit == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $states = State::get();
         $state = State::where(['name' => $hospital->state])->first();
         $cities = City::where('state_id', $state->id)->get();
@@ -176,7 +197,18 @@ class HospitalController extends Controller
      */
     public function destroy(Hospital $hospital)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Hospitals')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_delete == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $hospital->delete();
-        return redirect()->route('hospital.index');
+        $response = messageResponse(true, 'success', 'Hospital Successfully Deleted');
+        return redirect()->route('hospital.index')->with($response);
     }
 }

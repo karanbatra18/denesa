@@ -289,7 +289,7 @@
                             </li>
 
 
-
+                            @if(auth()->user()->role_id == 1)
                             <li>
                                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Manage Pages<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
@@ -342,10 +342,27 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('image-upload.view') }}"><i class="fa fa-picture-o fa-fw"></i> Image Upload Master</a> <!-- /.nav-second-level -->
+                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Permissions <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route('admin.user.index') }}">List All</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.user.create') }}">Add User</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.user.trash') }}">Trash</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.permissions.create') }}">Permissions</a>
+                                    </li>
+                                                                      {{-- <li>
+                                         <a href="{{ route('admin.blog-counters.edit') }}">Blog</a>
+                                     </li>--}}
+                                </ul>
+                                <!-- /.nav-second-level -->
                             </li>
-
-                            
+                                @endif
                         </ul>
                     </div>
                 </div>

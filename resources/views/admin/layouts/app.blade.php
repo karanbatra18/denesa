@@ -29,6 +29,8 @@
 
         <!-- Custom Fonts -->
         <link href="{{ asset('admin-theme/startmin-master') }}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ asset('admin-theme/startmin-master') }}/toastr/toastr.min.css" rel="stylesheet" type="text/css">
+
 
         <style type="text/css">
             .error{color:#a94442;}
@@ -100,8 +102,22 @@
         <script src="{{ asset('admin-theme/startmin-master') }}/js/startmin.js"></script>
 
         <script src="{{ asset('admin-theme/startmin-master') }}/js/bootstrap-datepicker.min.js"></script>
+        <script src="{{ asset('admin-theme/startmin-master') }}/toastr/toastr.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js"></script>
+        <script>
+                    @if(Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}";
+            switch (type) {
+                case 'success':
+                    toastr.success("{{ Session::get('message') }}");
+                    break;
 
+                case 'error':
+                    toastr.error("{{ Session::get('message') }}");
+                    break;
+            }
+            @endif
+        </script>
         @stack('foot')
 
     </body>

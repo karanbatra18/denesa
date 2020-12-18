@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePost;
 use App\Http\Requests\UpdatePost;
 use App\Post;
+use App\SiteModule;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -31,6 +32,16 @@ class PostController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Blogs')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_write == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $categories = Category::where(['type' => 'post'])->get();
         return view('admin.post.create', compact('categories'));
     }
@@ -77,6 +88,16 @@ class PostController extends Controller
     public function edit(Post $post)
     {
        // dd($post);
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Blogs')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_edit == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $categories = Category::where(['type' => 'post'])->get();
         $categoryPosts = $post->categories()->pluck('categories.id')->toArray();
         return view('admin.post.create', compact('post','categories','categoryPosts'));
@@ -114,8 +135,19 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Blogs')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_delete == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $post->delete();
-        return redirect()->route('admin.post.index');
+        $response = messageResponse(true, 'success', 'Post Successfully Deleted');
+        return redirect()->route('admin.post.index')->with($response);
     }
 
     

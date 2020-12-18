@@ -107,32 +107,52 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 
     Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
 
-        Route::get('/home', 'HomeController@edit')->name('home.edit');
 
-        Route::get('/upload/hospitals', 'CsvUploadController@uploadHospitals')->name('csv.hospitals_upload');
-        Route::post('/upload/hospitals', 'CsvUploadController@storeHospitals')->name('csv.hospitals_store');
 
-        Route::get('/upload/doctors', 'CsvUploadController@uploadDoctors')->name('csv.doctors_upload');
-        Route::post('/upload/doctors', 'CsvUploadController@storeDoctors')->name('csv.doctors_store');
+        Route::middleware('admin')->group(function() {
+            Route::get('/user/index', 'UserController@index')->name('user.index');
+            Route::get('/user/create', 'UserController@create')->name('user.create');
+            Route::post('/user', 'UserController@store')->name('user.store');
+            Route::put('/user/{user}', 'UserController@update')->name('user.update');
+            Route::get('/user/trash', 'UserController@trash')->name('user.trash');
+            Route::get('/user/{user}/edit', 'UserController@edit')->name('user.edit');
+            Route::DELETE('/user/destroy/{user}', 'UserController@deleteUser')->name('user.destroy');
 
-        Route::get('/upload/treatments', 'CsvUploadController@uploadTreatments')->name('csv.treatments_upload');
-        Route::post('/upload/treatments', 'CsvUploadController@storeTreatments')->name('csv.treatments_store');
+            Route::get('/user/permissions/{user?}', 'UserController@permissions')->name('permissions.create');
+            Route::post('/user/permissions/{user?}', 'UserController@savePermissions')->name('permissions.update');
 
-        Route::PUT('/home', 'HomeController@update')->name('home.update');
+            Route::get('/upload/hospitals', 'CsvUploadController@uploadHospitals')->name('csv.hospitals_upload');
+            Route::post('/upload/hospitals', 'CsvUploadController@storeHospitals')->name('csv.hospitals_store');
 
-        Route::get('/about', 'AboutController@edit')->name('about.edit');
-        Route::PUT('/about', 'AboutController@update')->name('about.update');
+            Route::get('/upload/doctors', 'CsvUploadController@uploadDoctors')->name('csv.doctors_upload');
+            Route::post('/upload/doctors', 'CsvUploadController@storeDoctors')->name('csv.doctors_store');
 
-        Route::get('/contact-us', 'ContactUsController@edit')->name('contact-us.edit');
-        Route::PUT('/contact-us', 'ContactUsController@update')->name('contact-us.update');
+            Route::get('/upload/treatments', 'CsvUploadController@uploadTreatments')->name('csv.treatments_upload');
+            Route::post('/upload/treatments', 'CsvUploadController@storeTreatments')->name('csv.treatments_store');
 
-        Route::get('/setting/footer/edit', 'SettingsController@editFooter')->name('setting.footer.edit');
-        Route::PUT('/setting/footer/update', 'SettingsController@updateFooter')->name('setting.footer.update');
+            Route::get('/setting/footer/edit', 'SettingsController@editFooter')->name('setting.footer.edit');
+            Route::PUT('/setting/footer/update', 'SettingsController@updateFooter')->name('setting.footer.update');
 
-        Route::get('/banner/edit', 'BannerController@edit')->name('banner.edit');
+            Route::get('/banner/edit', 'BannerController@edit')->name('banner.edit');
+            Route::PUT('/banner/update', 'BannerController@update')->name('banner.update');
+
+            Route::get('/home', 'HomeController@edit')->name('home.edit');
+            Route::PUT('/home', 'HomeController@update')->name('home.update');
+
+            Route::get('/about', 'AboutController@edit')->name('about.edit');
+            Route::PUT('/about', 'AboutController@update')->name('about.update');
+
+            Route::get('/contact-us', 'ContactUsController@edit')->name('contact-us.edit');
+            Route::PUT('/contact-us', 'ContactUsController@update')->name('contact-us.update');
+        });
+
+
+
+
+
         Route::get('/blog-counters/edit', 'PostController@editCounters')->name('blog.edit-counters');
         Route::get('/post/{id}/comments', 'PostController@comments')->name('post.comments');
-        Route::PUT('/banner/update', 'BannerController@update')->name('banner.update');
+
         Route::PUT('/blog-counters/update', 'PostController@updateCounters')->name('banner.update-counters');
         Route::DELETE('/comment/destroy/{comment_id}', 'PostController@deleteComment')->name('comment.destroy');
         Route::PUT('/comment/update/{comment_id}', 'PostController@updateCommentStatus')->name('comment.update');

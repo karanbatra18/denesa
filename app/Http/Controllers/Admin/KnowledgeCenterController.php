@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\KnowledgeCenter;
+use App\SiteModule;
 use App\Topic;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreKnowledgeCenter;
@@ -26,6 +27,16 @@ class KnowledgeCenterController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','News')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_write == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $categories = Category::where(['type' => 'news'])->get();
         $topics = Topic::where(['type' => 'news'])->get();
         return view('admin.knowledge_center.create', compact('categories', 'topics'));
@@ -78,6 +89,16 @@ class KnowledgeCenterController extends Controller
      */
     public function edit(KnowledgeCenter $knowledgeCenter)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','News')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_edit == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $categories = Category::where(['type' => 'news'])->get();
         $categoryKnowledgeCenters = $knowledgeCenter->categories()->pluck('categories.id')->toArray();
 
@@ -132,7 +153,18 @@ class KnowledgeCenterController extends Controller
      */
     public function destroy(KnowledgeCenter $knowledgeCenter)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','News')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_delete == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $knowledgeCenter->delete();
-        return redirect()->route('admin.knowledge_center.index');
+        $response = messageResponse(true, 'success', 'News Successfully Deleted');
+        return redirect()->route('admin.knowledge_center.index')->with($response);
     }
 }

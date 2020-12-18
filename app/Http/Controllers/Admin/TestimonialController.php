@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Category;
 use App\Http\Requests\StoreTestimonial;
 use App\Http\Requests\UpdateTestimonial;
+use App\SiteModule;
 use App\TestimonialImage;
 use App\Topic;
 use Illuminate\Http\Request;
@@ -62,6 +63,16 @@ class TestimonialController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Testimonials')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_write == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $categories = Category::where(['type' => 'testimonial'])->get();
        /* $topics = Topic::where(['type' => 'testimonial'])->get();*/
         return view('admin.testimonial.create', compact('categories'));
@@ -134,6 +145,17 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
+
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Testimonials')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_edit == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $categories = Category::where(['type' => 'testimonial'])->get();
         $categoryTestimonials = $testimonial->categories()->pluck('categories.id')->toArray();
 
@@ -201,7 +223,18 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Testimonials')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_delete == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $testimonial->delete();
-        return redirect()->route('testimonial.index');
+        $response = messageResponse(true, 'success', 'Testimonial Successfully Deleted');
+        return redirect()->route('testimonial.index')->with($response);
     }
 }

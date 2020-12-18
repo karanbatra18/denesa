@@ -6,6 +6,7 @@ use App\AboutIntroduction;
 use App\Category;
 use App\DenesaObjective;
 use App\DenesaService;
+use App\SiteModule;
 use App\Vision;
 use Illuminate\Http\Request;
 
@@ -79,6 +80,16 @@ class TreatmentController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Treatments')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_write == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $hospitals = Hospital::get();
         $doctors = Doctor::get();
         $categories = Category::where(['type' => 'treatment'])->get();
@@ -145,6 +156,16 @@ class TreatmentController extends Controller
      */
     public function edit(Treatment $treatment)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Treatments')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_edit == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $hospitals = Hospital::get();
         $doctors = Doctor::get();
         $categories = Category::where(['type' => 'treatment'])->get();
@@ -208,6 +229,17 @@ class TreatmentController extends Controller
      */
     public function destroy(Treatment $treatment)
     {
+
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Treatments')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_delete == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $treatment->delete();
         return redirect()->route('treatment.index');
     }

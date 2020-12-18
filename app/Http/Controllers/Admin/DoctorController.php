@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\SiteModule;
 use App\Speciality;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -56,6 +57,16 @@ class DoctorController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Doctors')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_write == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $hospitals = Hospital::get();
         $categories = Category::where(['type'=>'doctor'])->get();
         $doctorSpecialities = Speciality::where(['type'=>'doctor'])->get();
@@ -123,6 +134,16 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Doctors')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_edit == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $hospitals = Hospital::get();
         $categories = Category::where(['type'=>'doctor'])->get();
         $doctorSpecialities = Speciality::where(['type'=>'doctor'])->get();
@@ -189,6 +210,16 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
+        $user = auth()->user();
+        $getModule = SiteModule::where('name','Doctors')->first();
+        if($user->role_id != 1) {
+            $permission = getModulePermission($user->id,$getModule->id);
+            if(empty($permission) || $permission->can_delete == 0) {
+                $response = messageResponse(true, 'error', 'Unauthorised Access');
+                return redirect()->route('dashboard')->with($response);
+            }
+        }
+
         $doctor->delete();
         return redirect()->route('doctor.index');
     }      
